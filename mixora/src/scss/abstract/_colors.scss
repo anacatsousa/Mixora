@@ -1,7 +1,11 @@
 $beige: #fbf5f3;
 $orange: #e28413;
-$black: #000022;
+$blue: #000022;
 
 body {
-	background-color: #fbf5f3;
+	background-color: $beige;
+}
+
+a {
+	color: $blue;
 }
