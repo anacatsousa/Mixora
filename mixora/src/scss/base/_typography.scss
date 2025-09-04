@@ -1,5 +1,4 @@
 @use '../abstract/colors' as *;
-
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
@@ -7,7 +6,7 @@ body {
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
-	color: $black;
+	color: $blue;
 }
 
 h1,
@@ -20,5 +19,8 @@ h6 {
 	font-optical-sizing: auto;
 	font-weight: 600;
 	font-style: normal;
-	color: $orange;
 }
+
+$h2: clamp(2.5rem, 100%, 3rem);
+
+$h3: clamp(1.25rem, 100%, 1.25rem);

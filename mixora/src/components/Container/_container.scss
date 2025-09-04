@@ -1,0 +1,9 @@
+@use '@/scss/abstract/index' as *;
+
+.container {
+	padding: 60px 40px;
+
+	@include mobile {
+		padding: 40px 20px;
+	}
+}
