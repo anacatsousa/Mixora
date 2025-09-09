@@ -1,0 +1,46 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.wrapper {
+	&__products {
+		@include flex(row, nowrap, flex-start, flex-start);
+		gap: 10px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+
+		& > * {
+			flex: 0 0 auto;
+			width: clamp(100px, calc((100vw - 2 * 20px) / 4), 530px);
+			gap: 10px;
+			scroll-snap-align: start;
+		}
+	}
+
+	&__title {
+		font-size: $h3;
+	}
+}
+
+@media (max-width: 1024px) {
+	.wrapper__products > * {
+		width: clamp(100px, calc((100vw - 2 * 20px) / 3), 530px);
+	}
+}
+
+@media (max-width: 768px) {
+	.wrapper__products > * {
+		width: clamp(100px, calc((100vw - 2 * 20px) / 3), 530px);
+	}
+}
+@media (max-width: 576px) {
+	.wrapper__products > * {
+		width: clamp(100px, calc((100vw - 2 * 20px) / 2), 530px);
+	}
+}
+
+@media (max-width: 415px) {
+	.wrapper__products > * {
+		width: clamp(120px, calc((100vw - 2 * 25px) / 2), 530px);
+	}
+}
