@@ -1,0 +1,27 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.hero {
+	position: relative;
+	&__video {
+		width: 100vw;
+		height: 100vh;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	&__content {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		color: $white;
+		width: 100%;
+		max-width: 1200px;
+	}
+
+	&__title {
+		font-size: $h1;
+		margin-bottom: 40px;
+		margin-top: 20px;
+	}
+}

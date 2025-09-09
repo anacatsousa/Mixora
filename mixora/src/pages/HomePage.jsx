@@ -1,5 +1,13 @@
+import Hero from '../components/Hero/Hero';
+import HomeProducts from '../components/HomeProducts/HomeProducts';
+
 function HomePage() {
-	return <h1>Home Page</h1>;
+	return (
+		<>
+			<Hero />
+			<HomeProducts />
+		</>
+	);
 }
 
 export default HomePage;

@@ -1,0 +1,16 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.btn {
+	background-color: $primary-color;
+	color: $white;
+	border: none;
+	padding: 15px;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		background-color: $orange;
+	}
+}

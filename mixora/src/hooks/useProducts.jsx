@@ -24,8 +24,6 @@ function useProducts() {
 		fetchProducts();
 	}, []);
 
-	if (isLoading === true) return <span>LOADING...</span>;
-
 	return { products, isLoading };
 }
 
