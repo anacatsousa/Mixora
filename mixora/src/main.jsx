@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')).render(
 				<Route element={<Layout />}>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/category/:slug" element={<CategoryPage />} />
-					<Route path="/category/:slug/:slug" element={<ProductPage />} />
+					<Route path="/category/:categorySlug/:productSlug" element={<ProductPage />} />
 					<Route path="/cart" element={<CartPage />} />
 					<Route path="*" element={<NotFoundPage />} />
 				</Route>
