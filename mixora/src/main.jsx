@@ -8,8 +8,8 @@ import HomePage from './pages/HomePage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import ProductPage from './pages/ProductPage.jsx';
-import Layout from './components/Layout.jsx';
 import CartPage from './pages/CartPage.jsx';
+import Layout from './components/layout.jsx';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
