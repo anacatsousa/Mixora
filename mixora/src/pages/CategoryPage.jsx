@@ -1,5 +1,5 @@
 import { useParams } from 'react-router';
-import CategoryProducts from '../components/CategoryProducts/CategoryProducts(';
+import CategoryProducts from '../components/CategoryProducts/CategoryProducts';
 
 //pagina que aparece ao clicar nas opções do menu (categorias)
 
