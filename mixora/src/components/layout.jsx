@@ -1,11 +1,14 @@
 import { Outlet } from 'react-router';
 import Newsletter from './Newsletter/Newsletter';
 import Footer from './Footer/Footer';
+import NavBar from './NavBar/NavBar';
 
 function Layout() {
 	return (
 		<>
-			<header></header>
+			<header>
+				<NavBar />
+			</header>
 			<main>
 				<Outlet />
 			</main>
