@@ -1,0 +1,19 @@
+@use './colors' as *;
+
+%link {
+	color: $white;
+	border-bottom: 1px solid transparent;
+	transition: border-color 0.3s ease-in-out;
+	padding-bottom: 5px;
+	margin-bottom: 25px;
+
+	&:hover {
+		border-bottom: 1px solid currentColor;
+	}
+}
+
+%icons {
+	width: 20px;
+	height: 20px;
+	stroke-width: 1.5px;
+}

@@ -1,4 +1,6 @@
 import { Outlet } from 'react-router';
+import Newsletter from './Newsletter/Newsletter';
+import Footer from './Footer/Footer';
 
 function Layout() {
 	return (
@@ -7,7 +9,10 @@ function Layout() {
 			<main>
 				<Outlet />
 			</main>
-			<footer></footer>
+			<footer>
+				<Newsletter />
+				<Footer />
+			</footer>
 		</>
 	);
 }

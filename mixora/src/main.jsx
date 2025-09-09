@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 import { Routes } from 'react-router';
 import { Route } from 'react-router';
-import './sass/style.scss';
+import './scss/style.scss';
 import HomePage from './pages/HomePage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
