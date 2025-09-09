@@ -1,0 +1,14 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.wrapper-categories {
+	margin-top: 136px;
+	&__products-grid {
+		@include grid(10px, 300px);
+		gap: 10px;
+	}
+
+	&__title {
+		font-size: $h3;
+	}
+}
