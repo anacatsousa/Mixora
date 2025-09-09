@@ -24,8 +24,6 @@ function useCategories() {
 		fetchCategories();
 	}, []);
 
-	if (isLoading === true) return <span>LOADING...</span>;
-
 	return { categories, isLoading };
 }
 
