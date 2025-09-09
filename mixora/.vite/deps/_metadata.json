@@ -2,24 +2,30 @@
   "hash": "e593c084",
   "configHash": "11a9150a",
   "lockfileHash": "36c10600",
-  "browserHash": "4189782d",
+  "browserHash": "ae68dc9f",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "a84d4d00",
+      "fileHash": "a753468b",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "a2b3dd9d",
+      "fileHash": "ba09f607",
       "needsInterop": true
     },
     "react-router": {
       "src": "../../node_modules/react-router/dist/development/index.mjs",
       "file": "react-router.js",
-      "fileHash": "becb2fb9",
+      "fileHash": "8bae3830",
+      "needsInterop": false
+    },
+    "@fortawesome/react-fontawesome": {
+      "src": "../../node_modules/@fortawesome/react-fontawesome/dist/index.js",
+      "file": "@fortawesome_react-fontawesome.js",
+      "fileHash": "f02c93fa",
       "needsInterop": false
     }
   },

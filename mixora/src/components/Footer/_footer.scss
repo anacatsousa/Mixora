@@ -1,0 +1,97 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.footer {
+	background-color: $primary-color;
+	color: $white;
+	&__top {
+		@include flex(row, nowrap, space-between, flex-start);
+		padding-bottom: 60px;
+
+		@include mobile {
+			@include flex(column, nowrap, flex-start, flex-start);
+			padding-bottom: 40px;
+		}
+	}
+	&__left {
+		@include flex(column, nowrap, flex-start, flex-start);
+		gap: 40px;
+		margin-right: 100px;
+		@include tablet {
+			margin: 0 100px 60px 0;
+		}
+	}
+	&__logo {
+		max-width: 160px;
+		width: 100%;
+	}
+
+	&__socialmedia {
+		@include flex(row, nowrap, flex-start, center);
+		gap: 25px;
+		cursor: pointer;
+		svg {
+			@extend %icons;
+		}
+	}
+
+	&__right {
+		@include flex(row, nowrap, space-between, flex-start);
+		gap: 100px;
+
+		@include tablet {
+			@include flex(row, wrap, flex-start, flex-start);
+			gap: 60px;
+		}
+	}
+
+	&__title {
+		padding-bottom: 40px;
+		font-size: $h3;
+	}
+
+	&__menu {
+		li {
+			margin-bottom: 25px;
+		}
+	}
+
+	&__links {
+		@extend %link;
+	}
+
+	&__payment {
+		@include flex(row, wrap, flex-start, center);
+		gap: 25px;
+		li {
+			margin-bottom: 0;
+			svg {
+				@extend %icons;
+			}
+		}
+	}
+
+	&__bottom {
+		@include flex(row, nowrap, space-between, center);
+		padding-top: 40px;
+		border-top: 1px solid $white;
+		@include mobile {
+			@include flex(column, nowrap, space-between, center);
+		}
+	}
+
+	&__flex {
+		@include flex(row, wrap, space-between, center);
+		gap: 30px;
+
+		@include mobile {
+			@include flex(column, nowrap, space-between, center);
+			gap: 0;
+			margin-bottom: 30px;
+		}
+
+		a {
+			@extend %link;
+		}
+	}
+}
