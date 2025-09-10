@@ -1,0 +1,23 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.back-button {
+	border: none;
+	background: none;
+	@include flex(row, nowrap, flex-start, center);
+	margin-bottom: 40px;
+	font-size: 1rem;
+	color: $primary-color;
+	cursor: pointer;
+	gap: 10px;
+	transition: 0.5s ease-in-out;
+
+	&:hover {
+		gap: 5px;
+	}
+
+	&__icon {
+		color: $primary-color;
+		stroke-width: 1.5px;
+	}
+}

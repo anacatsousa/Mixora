@@ -3,6 +3,7 @@ import useProducts from '../../hooks/useProducts';
 import Card from '../Card/Card';
 import Container from '../Container/Container';
 import './_categoryProducts.scss';
+import BackButton from '../BackButton/BackButton';
 
 function CategoryProducts({ category }) {
 	const { products, isLoading } = useProducts();
@@ -12,6 +13,7 @@ function CategoryProducts({ category }) {
 	return (
 		<section className="wrapper-categories">
 			<div className="wrapper-categories__header">
+				<BackButton />
 				<h2 className="wrapper-categories__title">{category}</h2>
 			</div>
 			<Container>
