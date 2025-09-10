@@ -11,8 +11,10 @@ function CategoryProducts({ category }) {
 
 	return (
 		<section className="wrapper-categories">
-			<Container>
+			<div className="wrapper-categories__header">
 				<h2 className="wrapper-categories__title">{category}</h2>
+			</div>
+			<Container>
 				<div className="wrapper-categories__products-grid">
 					{products
 						.filter((product) => product.category.slug === category)

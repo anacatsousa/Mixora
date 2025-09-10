@@ -2,13 +2,23 @@
 @use '@/scss/base/index' as *;
 
 .wrapper-categories {
-	margin-top: 136px;
+	&__header {
+		background-color: $secondary-color;
+		padding: 150px 20px 60px 20px;
+	}
 	&__products-grid {
 		@include grid(10px, 300px);
 		gap: 10px;
+		background-color: $white;
 	}
 
 	&__title {
-		font-size: $h3;
+		font-size: $h2;
+		color: $primary-color;
+		text-transform: capitalize;
 	}
+}
+
+.container:has(.wrapper-categories__products-grid) {
+	background-color: $white;
 }
