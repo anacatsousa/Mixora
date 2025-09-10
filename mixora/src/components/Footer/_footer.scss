@@ -92,6 +92,11 @@
 
 		a {
 			@extend %link;
+			margin-bottom: 0;
+
+			@include mobile {
+				margin-bottom: 25px;
+			}
 		}
 	}
 }
