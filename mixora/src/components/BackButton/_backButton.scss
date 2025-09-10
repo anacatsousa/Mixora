@@ -16,6 +16,13 @@
 		gap: 5px;
 	}
 
+	&--absolute {
+		position: absolute;
+		left: 20px;
+		top: 130px;
+		z-index: 1000;
+	}
+
 	&__icon {
 		color: $primary-color;
 		stroke-width: 1.5px;
