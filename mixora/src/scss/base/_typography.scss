@@ -18,7 +18,7 @@ h2 {
 }
 
 $h1: clamp(3rem, 5vw, 4rem);
-$h2: clamp(2.5rem, 100%, 3rem);
+$h2: clamp(2rem, 5vw, 2.5rem);
 $h3: clamp(1.125rem, 3vw, 1.4rem);
 $h4: clamp(1rem, 2.5vw, 1.125rem);
 $h5: clamp(0.875rem, 2vw, 1rem);
