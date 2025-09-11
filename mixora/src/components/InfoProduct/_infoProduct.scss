@@ -1,0 +1,54 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.info-product {
+	&__grid {
+		@include grid(70px, 40%);
+		&:first-child {
+			margin-bottom: 5rem;
+			@include tablet {
+				margin-bottom: 50px;
+			}
+		}
+		@include tablet {
+			@include grid(50px, 100%);
+		}
+	}
+
+	&__flex {
+		@include flex(column, wrap, flex-end, space-between);
+		gap: 30px;
+
+		&--space {
+			@include flex(column, wrap, space-around, flex-start);
+			gap: 50px;
+		}
+	}
+	&__title {
+		font-size: $h2;
+	}
+
+	&__price {
+		font-size: $h3;
+	}
+
+	&__img {
+		width: 100%;
+	}
+
+	&__description {
+		font-size: $description;
+		line-height: 1.4;
+	}
+
+	&__container-links {
+		li:not(:last-child) {
+			margin-bottom: 25px;
+		}
+	}
+
+	&__links {
+		@extend %link;
+		color: $primary-color;
+	}
+}

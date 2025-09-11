@@ -5,10 +5,6 @@ import './_headerProductPage.scss';
 function HeaderProductPage({ categorySlug, productSlug }) {
 	const { products, isLoading } = useProducts();
 
-	console.log('categorySlug:', categorySlug);
-	console.log('productSlug:', productSlug);
-	console.log('products:', products);
-
 	const product = products.find((product) => product.category.slug === categorySlug && product.slug === productSlug);
 
 	if (isLoading === true) return <span>LOADING...</span>;
