@@ -1,8 +1,8 @@
 import './_button.scss';
 
-function Button({ text, price, hasPrice = true }) {
+function Button({ text, price, hasPrice = true, onClick }) {
 	return (
-		<button className="btn">
+		<button className="btn" onClick={onClick}>
 			{hasPrice ? (
 				<>
 					<p>{text}</p>

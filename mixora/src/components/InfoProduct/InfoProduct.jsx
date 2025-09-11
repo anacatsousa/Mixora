@@ -3,9 +3,11 @@ import useProducts from '../../hooks/useProducts';
 import Container from '../Container/Container';
 import Button from '../Button/Button';
 import { Link } from 'react-router';
+import { useCart } from '../../hooks/useCart';
 
 function InfoProduct({ categorySlug, productSlug }) {
 	const { products, isLoading } = useProducts();
+	const { addProductToCart } = useCart();
 
 	const product = products.find((product) => product.category.slug === categorySlug && product.slug === productSlug);
 	if (!products || products.length === 0) return <span> no product</span>;
@@ -17,12 +19,12 @@ function InfoProduct({ categorySlug, productSlug }) {
 			<Container>
 				<div>
 					<div className="info-product__grid">
-						<divn className="info-product__flex">
+						<div className="info-product__flex">
 							<span>{product.category.name}</span>
 							<h2 className="info-product__title"> {product.title}</h2>
-						</divn>
+						</div>
 						<div className="info-product__flex">
-							<Button text="Add to Bag" price={product.price} />
+							<Button text="Add to Bag" price={product.price} onClick={() => addProductToCart(product)} />
 						</div>
 					</div>
 					<div className="info-product__grid">
