@@ -11,6 +11,7 @@ import { useRef } from 'react';
 import useDetectMenuCollision from '../../hooks/useDetectMenuCollision';
 import Container from '../Container/Container';
 import HambuerguerButton from '../HamburguerButton/HamburguerButton';
+import { useCart } from '../../hooks/useCart';
 
 function NavBar() {
 	const { categories, isLoading } = useCategories([]);
@@ -109,6 +110,15 @@ function NavBar() {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [lastScrollY]);
 
+	//***
+
+	// Number of items in the bag
+
+	//***
+
+	const { cartItems } = useCart();
+	const total = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
 	if (isLoading === true) return <span>LOADING...</span>;
 
 	return (
@@ -132,7 +142,7 @@ function NavBar() {
 
 										<User className="nav__icons" />
 
-										<Link to={'/bag'}>[ 0 ]</Link>
+										<Link to={'/bag'}>[ {total} ]</Link>
 									</div>
 								</div>
 							</>
@@ -169,7 +179,7 @@ function NavBar() {
 										</Link>
 
 										<Link to={'/bag'} className="nav__links">
-											Bag [ 0 ]
+											Bag [ {total} ]
 										</Link>
 									</div>
 								</div>
