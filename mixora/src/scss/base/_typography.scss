@@ -1,12 +1,14 @@
 @use '../abstract/colors' as *;
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
+body,
+button {
 	font-family: 'Jura', sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
 	color: $primary-color;
+	font-size: 16px;
 }
 
 h1,
@@ -25,3 +27,4 @@ $h5: clamp(0.875rem, 2vw, 1rem);
 $h6: clamp(0.75rem, 1.5vw, 0.875rem);
 
 $samll-nav: clamp(1.5rem, 5vw, 1.875rem);
+$description: clamp(1.125rem, 3vw, 1.4rem);

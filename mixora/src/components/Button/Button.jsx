@@ -1,10 +1,17 @@
 import './_button.scss';
 
-function Button({ text }) {
+function Button({ text, price, hasPrice = true }) {
 	return (
-		<a href="#" className="btn">
-			{text}
-		</a>
+		<button className="btn">
+			{hasPrice ? (
+				<>
+					<p>{text}</p>
+					<p>{price} €</p>
+				</>
+			) : (
+				<p>{text}</p>
+			)}
+		</button>
 	);
 }
 export default Button;
