@@ -13,7 +13,7 @@ import Container from '../Container/Container';
 import HambuerguerButton from '../HamburguerButton/HamburguerButton';
 import { useCart } from '../../hooks/useCart';
 
-function NavBar() {
+function NavBar({ onCartClick }) {
 	const { categories, isLoading } = useCategories([]);
 
 	// ***
@@ -142,7 +142,7 @@ function NavBar() {
 
 										<User className="nav__icons" />
 
-										<Link to={'/bag'}>[ {total} ]</Link>
+										<Link onClick={onCartClick}>[ {total} ]</Link>
 									</div>
 								</div>
 							</>
@@ -178,9 +178,9 @@ function NavBar() {
 											Account
 										</Link>
 
-										<Link to={'/bag'} className="nav__links">
+										<button className="nav__links" onClick={onCartClick}>
 											Bag [ {total} ]
-										</Link>
+										</button>
 									</div>
 								</div>
 							</div>
