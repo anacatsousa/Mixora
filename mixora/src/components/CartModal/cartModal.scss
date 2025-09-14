@@ -1,23 +1,136 @@
-.cart-modal-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.6);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 9999;
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.cart {
+	&__overlay {
+		position: fixed;
+		top: 0;
+		right: 0;
+		@include flex(row, nowrap, flex-end, center);
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba($primary-color, 0.5);
+		backdrop-filter: blur(10px);
+		z-index: 9999;
+	}
+
+	&__modal {
+		background-color: $white;
+		width: 45vw;
+		&--open {
+			animation: modalSlideIn 0.5s ease-in-out forwards;
+		}
+		&--closed {
+			animation: modalSlideOut 0.5s ease-in-out forwards;
+		}
+		@include tablet {
+			width: 100vw;
+		}
+		&-section {
+			@include flex(column, nowrap, space-between, stretch);
+			height: calc(100vh - 2 * 40px);
+			overflow: hidden;
+		}
+	}
+
+	&__header {
+		flex: 0 0 auto;
+		@include flex(row, nowrap, space-between, center);
+		margin-bottom: 2rem;
+	}
+
+	&__title {
+		font-size: $h3;
+	}
+
+	&__img {
+		max-width: 120px;
+		width: 100%;
+	}
+
+	&__body {
+		flex: 1 1 auto;
+		overflow-y: auto;
+		@include flex(column, nowrap, center, center);
+		&.has-items {
+			justify-content: flex-start;
+		}
+	}
+
+	&__empty-message {
+		font-size: $empty;
+	}
+
+	&__product-section {
+		@include flex(row, nowrap, space-between, stretch);
+		height: 100%;
+	}
+
+	&__products {
+		width: 100%;
+		@include flex(column, nowrap, space-between, stretch);
+		gap: 2rem;
+	}
+
+	&__info {
+		@include flex(column, nowrap, space-between, flex-start);
+		&-section {
+			@include flex(row, nowrap, flex-start, stretch);
+			gap: 20px;
+			width: 90%;
+		}
+	}
+
+	&__product-name {
+		font-size: $h4;
+		font-weight: 600;
+		margin-top: 10px;
+	}
+
+	&__icons-section {
+		@include flex(row, nowrap, space-between, center);
+		width: 100%;
+	}
+
+	&__quantity-section {
+		@include flex(row, nowrap, flex-start, center);
+		gap: 20px;
+	}
+
+	&__small-section {
+		@include flex(column, nowrap, space-between, flex-end);
+	}
+
+	&__footer {
+		@include flex(column, nowrap, center, stretch);
+		margin-top: 2rem;
+		width: 100%;
+		gap: 2rem;
+	}
+
+	&__total {
+		@include flex(row, nowrap, space-between, center);
+	}
 }
 
-.cart-modal {
-	background: #fff;
-	padding: 2rem;
-	border-radius: 8px;
-	max-height: 90vh;
-	width: 90%;
-	max-width: 600px;
-	overflow-y: auto;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+@keyframes modalSlideIn {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes modalSlideOut {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(100%);
+		opacity: 0;
+	}
 }

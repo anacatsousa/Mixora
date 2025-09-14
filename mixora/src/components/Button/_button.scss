@@ -8,9 +8,40 @@
 	padding: 20px 25px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-	@include flex(row, wrap, space-between, flex-start);
+	@include flex(row, wrap, center, center);
+	&--cart {
+		padding: 0;
+		background-color: $white;
+		color: $primary-color;
+		&:disabled {
+			cursor: not-allowed;
+		}
+	}
 
-	&:hover {
-		background-color: $orange;
+	// &--closed {
+	// 	animation: modalSlideOut 0.3s ease-in-out forwards;
+	// }
+
+	&.space {
+		justify-content: space-between;
+	}
+
+	svg {
+		@extend %icons;
 	}
 }
+
+.btn:not(.btn--cart):hover {
+	background-color: $orange;
+}
+
+// @keyframes modalSlideOut {
+// 	from {
+// 		transform: translateX(0);
+// 		opacity: 1;
+// 	}
+// 	to {
+// 		transform: translateX(100%);
+// 		opacity: 0;
+// 	}
+// }

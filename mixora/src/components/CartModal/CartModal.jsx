@@ -2,41 +2,106 @@ import { useCart } from '@/hooks/useCart';
 import Button from '../Button/Button';
 import Container from '../Container/Container';
 import './cartModal.scss';
+import { X } from 'lucide-react';
+import { Plus } from 'lucide-react';
+import { Minus } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 function CartModal({ isOpen, onClose }) {
-	const { cartItems, addProductToCart, removeProductFromCart, getCartTotalPrice } = useCart();
+	const { cartItems, addProductToCart, removeProductFromCart, getCartTotalPrice, deleteProductFromCart } = useCart();
+	const [closing, setClosing] = useState(false);
+	const [visibility, setVisibility] = useState(false);
 
-	if (!isOpen) return null;
+	useEffect(() => {
+		if (isOpen) {
+			// Abrir modal
+			setVisibility(true);
+			setClosing(false);
+		} else if (visibility) {
+			// Iniciar animação de fechar
+			setClosing(true);
+			// Esperar 300ms (duração da animação) para desmontar modal
+			const timeout = setTimeout(() => {
+				setVisibility(false);
+				setClosing(false);
+			}, 500);
+
+			return () => clearTimeout(timeout);
+		}
+	}, [isOpen, visibility]);
+
+	if (!visibility) return null;
 
 	const total = getCartTotalPrice(cartItems || []);
 
-	if (!cartItems || cartItems.length === 0) {
-		return <p>O carrinho está vazio.</p>;
-	}
-
 	return (
 		<>
-			<section style={{ height: '100vh', marginTop: '100px' }}>
-				<div className="cart-modal-overlay">
-					<div className="cart-modal">
+			<section className="cart">
+				<div className="cart__overlay">
+					<div className={`cart__modal ${closing ? 'cart__modal--closed' : 'cart__modal--open'}`}>
 						<Container>
-							<Button text="Fechar" onClick={onClose} hasPrice={false} />
-							{cartItems.length === 0 ? (
-								<p>O carrinho está vazio.</p>
-							) : (
-								<ul>
-									{cartItems.map((item) => (
-										<li key={item.id}>
-											<h2>{item.title}</h2>
-											<h3>{item.quantity}</h3>
-											<Button text="+" hasPrice={false} onClick={() => addProductToCart(item)} />
-											<Button text="-" hasPrice={false} onClick={() => removeProductFromCart(item)} />
-										</li>
-									))}
-									<h3>Subtotal: {total.toFixed(2)}</h3>
-									<Button text="Checkout" hasPrice={false} />
-								</ul>
-							)}
+							<div className="cart__modal-section">
+								<div className="cart__header">
+									<h3 className="cart__title">Bag</h3>
+									<Button onClick={onClose}>
+										<X />
+									</Button>
+								</div>
+								<div className={`cart__body ${cartItems.length > 0 ? 'has-items' : ''}`}>
+									{cartItems.length === 0 ? (
+										<p className="cart__empty-message">[ Your bag is empty ]</p>
+									) : (
+										<ul className="cart__products">
+											{cartItems.map((item) => (
+												<li key={item.id}>
+													<div className="cart__product-section">
+														<div className="cart__info-section">
+															<img src={item.images[0]} alt={item.slug} className="cart__img" />
+															<div className="cart__info">
+																<div>
+																	<p>{item.category.name}</p>
+																	<p className="cart__product-name">{item.title}</p>
+																</div>
+																<div className="cart__quantity-section">
+																	{item.quantity === 1 ? (
+																		<Button disabled={true} variant="cart">
+																			<Minus />
+																		</Button>
+																	) : (
+																		<Button hasPrice={false} onClick={() => removeProductFromCart(item)} variant="cart">
+																			<Minus />
+																		</Button>
+																	)}
+																	<p>{item.quantity}</p>
+																	<Button hasPrice={false} onClick={() => addProductToCart(item)} variant="cart">
+																		<Plus />
+																	</Button>
+																</div>
+															</div>
+														</div>
+														<div className="cart__small-section">
+															<p>{item.price} €</p>
+															<Button hasPrice={false} onClick={() => deleteProductFromCart(item)} variant="cart">
+																<Trash2 />
+															</Button>
+														</div>
+													</div>
+												</li>
+											))}
+										</ul>
+									)}
+								</div>
+								<div className="cart__footer">
+									{cartItems.length > 0 && (
+										<div className="cart__total">
+											<p>Subtotal:</p>
+											<p>{total.toFixed(2)} €</p>
+										</div>
+									)}
+									<Button text={cartItems.length === 0 ? 'Continue Shopping' : 'Checkout'} hasPrice={false} />
+								</div>
+							</div>
 						</Container>
 					</div>
 				</div>
