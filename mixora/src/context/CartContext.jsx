@@ -33,13 +33,21 @@ function CartProvider({ children }) {
 		});
 	};
 
+	// Delete products
+
+	const deleteProductFromCart = (product) => {
+		setCartItems((prevItems) => {
+			return prevItems.filter((item) => item.id !== product.id);
+		});
+	};
+
 	// Total
 
 	const getCartTotalPrice = (items) => {
 		return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 	};
 
-	return <CartContext.Provider value={{ cartItems, addProductToCart, removeProductFromCart, getCartTotalPrice }}>{children}</CartContext.Provider>;
+	return <CartContext.Provider value={{ cartItems, addProductToCart, removeProductFromCart, getCartTotalPrice, deleteProductFromCart }}>{children}</CartContext.Provider>;
 }
 
 export { CartContext, CartProvider };

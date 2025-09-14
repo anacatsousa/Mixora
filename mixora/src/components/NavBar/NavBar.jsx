@@ -142,7 +142,7 @@ function NavBar({ onCartClick }) {
 
 										<User className="nav__icons" />
 
-										<Link onClick={onCartClick}>[ {total} ]</Link>
+										<button onClick={onCartClick}>[ {total} ]</button>
 									</div>
 								</div>
 							</>
