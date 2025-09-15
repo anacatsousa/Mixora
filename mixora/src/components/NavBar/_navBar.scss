@@ -47,7 +47,15 @@
 		&--small-nav {
 			font-size: $samll-nav;
 			width: 100%;
+			margin-bottom: 20px;
 			@include flex(row, nowrap, space-between, center);
+		}
+	}
+
+	&__right {
+		@include flex(row, nowrap, flex-start, flex-end);
+		a {
+			height: 22px;
 		}
 	}
 
@@ -97,7 +105,7 @@
 		left: 0;
 
 		&--open {
-			animation: navSlideIn 0.3s ease-in-out forwards;
+			animation: navSlideIn 0.2s ease-in-out forwards;
 		}
 
 		&--closed {
