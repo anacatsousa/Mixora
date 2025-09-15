@@ -3,11 +3,12 @@ import useProducts from '../../hooks/useProducts';
 import './_homeproducts.scss';
 import Card from '../Card/Card';
 import Container from '../Container/Container';
+import Loading from '../Loading/Loading';
 
 function HomeProducts() {
 	const { products, isLoading } = useProducts();
 
-	if (isLoading === true) return <span>LOADING...</span>;
+	if (isLoading === true) return <Loading />;
 	return (
 		<section className="wrapper">
 			<Container>

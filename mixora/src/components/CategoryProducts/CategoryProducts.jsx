@@ -4,11 +4,12 @@ import Card from '../Card/Card';
 import Container from '../Container/Container';
 import './_categoryProducts.scss';
 import BackButton from '../BackButton/BackButton';
+import Loading from '../Loading/Loading';
 
 function CategoryProducts({ category }) {
 	const { products, isLoading } = useProducts();
 
-	if (isLoading === true) return <span>LOADING...</span>;
+	if (isLoading === true) return <Loading />;
 
 	return (
 		<section className="wrapper-categories">
