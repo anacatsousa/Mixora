@@ -1,5 +1,6 @@
 import useProducts from '../../hooks/useProducts';
 import BackButton from '../BackButton/BackButton';
+import Loading from '../Loading/Loading';
 import './_headerProductPage.scss';
 
 function HeaderProductPage({ categorySlug, productSlug }) {
@@ -7,7 +8,7 @@ function HeaderProductPage({ categorySlug, productSlug }) {
 
 	const product = products.find((product) => product.category.slug === categorySlug && product.slug === productSlug);
 
-	if (isLoading === true) return <span>LOADING...</span>;
+	if (isLoading === true) return <Loading />;
 	if (!products || products.length === 0) return <span> no product</span>;
 
 	return (

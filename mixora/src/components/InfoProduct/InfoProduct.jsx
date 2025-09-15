@@ -4,6 +4,7 @@ import Container from '../Container/Container';
 import Button from '../Button/Button';
 import { Link } from 'react-router';
 import { useCart } from '../../hooks/useCart';
+import Loading from '../Loading/Loading';
 
 function InfoProduct({ categorySlug, productSlug }) {
 	const { products, isLoading } = useProducts();
@@ -12,7 +13,7 @@ function InfoProduct({ categorySlug, productSlug }) {
 	const product = products.find((product) => product.category.slug === categorySlug && product.slug === productSlug);
 	if (!products || products.length === 0) return <span> no product</span>;
 
-	if (isLoading === true) return <span>LOADING...</span>;
+	if (isLoading === true) return <Loading />;
 
 	return (
 		<section className="info-product">
