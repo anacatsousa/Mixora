@@ -160,9 +160,6 @@ function NavBar({ onCartClick }) {
 											</Link>
 										))}
 									</div>
-									<div className="nav__center-measure">
-										<img src={logo} alt="logo" style={{ opacity: 0, width: '100px' }} />
-									</div>
 									<div className="nav__center">
 										<Link to={'/'}>
 											<img src={logo} alt="logo" className="nav__logo" />
