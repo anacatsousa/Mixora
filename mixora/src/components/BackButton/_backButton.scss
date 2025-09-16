@@ -3,10 +3,11 @@
 
 .back-button {
 	border: none;
-	background: none;
+	background: transparent;
 	@include flex(row, nowrap, flex-start, center);
 	margin-bottom: 40px;
 	font-size: 1rem;
+	padding: 0;
 	color: $primary-color;
 	cursor: pointer;
 	gap: 10px;
@@ -20,7 +21,7 @@
 		position: absolute;
 		left: 20px;
 		top: 130px;
-		z-index: 100;
+		z-index: 1001;
 	}
 
 	&__icon {
