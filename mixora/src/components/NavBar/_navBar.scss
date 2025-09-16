@@ -23,20 +23,6 @@
 		position: relative;
 	}
 
-	&__center-measure {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		pointer-events: none;
-		width: 100px;
-		height: 20px;
-		opacity: 0;
-		position: relative;
-		width: 100px; // ou o tamanho do logo
-		height: 100%; // garante que tem altura
-	}
-
 	&__icons {
 		@extend %icons;
 		color: $primary-color;
@@ -57,11 +43,9 @@
 	}
 
 	&__left {
-		display: flex;
-		overflow-x: hidden; // ou auto, mas pra detectar overflow usa hidden
-		white-space: nowrap; // evita quebra de linha
-		max-width: 50%; // largura fixa ou relativa, você que define
-		gap: 2rem;
+		@include flex(row, nowrap, flex-start, center);
+		overflow-x: hidden;
+		max-width: 50%;
 	}
 
 	&__right {
@@ -82,6 +66,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		margin-left: 50px;
 
 		@include tablet {
 			max-width: 85px;
