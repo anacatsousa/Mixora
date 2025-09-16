@@ -1,17 +1,22 @@
 import { useNavigate } from 'react-router';
 import { ChevronLeft } from 'lucide-react';
+import Button from '../Button/Button';
 import './_backButton.scss';
 
 function BackButton({ absolute = false }) {
-	const navegate = useNavigate();
+	const navigate = useNavigate();
 
-	const handleBack = () => navegate(-1);
+	const handleBack = () => navigate(-1);
 
 	return (
-		<button onClick={handleBack} className={`back-button ${absolute ? 'back-button--absolute' : ''}`}>
+		<Button onClick={handleBack} className={`back-button ${absolute ? 'back-button--absolute' : ''}`}>
 			<ChevronLeft className="back-button__icon" />
-			Back
-		</button>
+			<span>Back</span>
+		</Button>
+		// <button onClick={handleBack} className={`back-button ${absolute ? 'back-button--absolute' : ''}`}>
+		// 	<ChevronLeft className="back-button__icon" />
+		// 	Back
+		// </button>
 	);
 }
 

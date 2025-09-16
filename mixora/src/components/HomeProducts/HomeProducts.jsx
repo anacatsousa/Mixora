@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import Button from '../Button/Button';
 import { ChevronLeft } from 'lucide-react';
 import { ChevronRight } from 'lucide-react';
+import Loading from '../Loading/Loading';
 
 function HomeProducts() {
 	const { products, isLoading } = useProducts();
@@ -34,7 +35,8 @@ function HomeProducts() {
 		}
 	};
 
-	if (isLoading === true) return <span>LOADING...</span>;
+	if (isLoading === true) return <Loading />;
+
 	return (
 		<section className="wrapper">
 			<Container>

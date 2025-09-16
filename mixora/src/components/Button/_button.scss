@@ -54,6 +54,6 @@
 	}
 }
 
-.btn:not(.btn--cart, .btn--link, .btn--slider):hover {
+.btn:not(.btn--cart, .btn--link, .btn--slider, .back-button):hover {
 	background-color: $orange;
 }

@@ -25,7 +25,7 @@ function InfoProduct({ categorySlug, productSlug }) {
 							<h2 className="info-product__title"> {product.title}</h2>
 						</div>
 						<div className="info-product__flex">
-							<Button text="Add to Bag" price={product.price} onClick={() => addProductToCart(product)} />
+							<Button text="Add to Bag" hasPrice={true} price={product.price} onClick={() => addProductToCart(product)} />
 						</div>
 					</div>
 					<div className="info-product__grid">
