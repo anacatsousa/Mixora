@@ -2,45 +2,40 @@
 @use '@/scss/base/index' as *;
 
 .wrapper {
+	position: relative;
+	&__controls {
+		@include flex(row, nowrap, space-between, flex-start);
+		position: absolute;
+		z-index: 10;
+		top: 50%;
+		width: calc((100% - (4 * 10px)));
+		transform: translateY(-50%);
+	}
 	&__products {
 		@include flex(row, nowrap, flex-start, flex-start);
 		gap: 10px;
 		overflow: scroll;
 		-ms-overflow-style: none;
 		scrollbar-width: none;
+		scroll-snap-type: x mandatory;
 
 		& > * {
 			flex: 0 0 auto;
-			width: clamp(100px, calc((100vw - 2 * 20px) / 4), 530px);
+			width: calc((100% - (3 * 10px)) / 4);
 			gap: 10px;
 			scroll-snap-align: start;
+
+			@include tablet {
+				width: calc((100% - (2 * 10px)) / 3);
+			}
+
+			@include mobile {
+				width: calc((100% - (1 * 10px)) / 2);
+			}
 		}
 	}
 
 	&__title {
 		font-size: $h3;
-	}
-}
-
-@media (max-width: 1024px) {
-	.wrapper__products > * {
-		width: clamp(100px, calc((100vw - 2 * 20px) / 3), 530px);
-	}
-}
-
-@media (max-width: 768px) {
-	.wrapper__products > * {
-		width: clamp(100px, calc((100vw - 2 * 20px) / 3), 530px);
-	}
-}
-@media (max-width: 576px) {
-	.wrapper__products > * {
-		width: clamp(100px, calc((100vw - 2 * 20px) / 2), 530px);
-	}
-}
-
-@media (max-width: 415px) {
-	.wrapper__products > * {
-		width: clamp(120px, calc((100vw - 2 * 25px) / 2), 530px);
 	}
 }
