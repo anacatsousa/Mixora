@@ -11,6 +11,7 @@ import Container from '../Container/Container';
 import HambuerguerButton from '../HamburguerButton/HamburguerButton';
 import { useCart } from '../../hooks/useCart';
 import Button from '@/components/Button/Button';
+import Loading from '../Loading/Loading';
 
 function NavBar({ onCartClick }) {
 	const { categories, isLoading } = useCategories([]);
@@ -97,7 +98,7 @@ function NavBar({ onCartClick }) {
 	const { cartItems } = useCart();
 	const total = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
-	if (isLoading === true) return <span>LOADING...</span>;
+	if (isLoading === true) return <Loading />;
 
 	return (
 		<>
