@@ -5,6 +5,7 @@ import Container from '../Container/Container';
 import './_categoryProducts.scss';
 import BackButton from '../BackButton/BackButton';
 import Loading from '../Loading/Loading';
+import Button from '../Button/Button';
 
 function CategoryProducts({ category }) {
 	const { products, isLoading } = useProducts();

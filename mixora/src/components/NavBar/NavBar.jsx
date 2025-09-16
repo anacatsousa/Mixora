@@ -5,7 +5,7 @@ import logo from '@/assets/MIXORA.svg';
 import { Search } from 'lucide-react';
 import { User } from 'lucide-react';
 import { ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState, useLayoutEffect } from 'react';
 import { useEffect } from 'react';
 import Container from '../Container/Container';
 import HambuerguerButton from '../HamburguerButton/HamburguerButton';
@@ -62,6 +62,7 @@ function NavBar({ onCartClick }) {
 	const [lastScrollY, setLastScrollY] = useState(window.scrollY);
 
 	useEffect(() => {
+		setIsScrollY(false);
 		const handleScroll = () => {
 			const currentScrollY = window.scrollY;
 
@@ -98,14 +99,42 @@ function NavBar({ onCartClick }) {
 	const { cartItems } = useCart();
 	const total = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
+
+	// ***
+
+	// Size of all links is bigger than the size of nav_left, force small nav
+
+	// ***
+
+	const navLeftRef = useRef(null);
+	const [forceSmallNav, setForceSmallNav] = useState(false);
+
+	useLayoutEffect(() => {
+		const checkOverflow = () => {
+			const el = navLeftRef.current;
+			if (!el) return;
+
+			const scrollWidth = el.scrollWidth;
+			const clientWidth = el.clientWidth;
+
+			setForceSmallNav(scrollWidth > clientWidth);
+		};
+
+		checkOverflow();
+
+		window.addEventListener('resize', checkOverflow);
+		return () => window.removeEventListener('resize', checkOverflow);
+	}, [categories]);
+
 	if (isLoading === true) return <Loading />;
+
 
 	return (
 		<>
 			<nav className={`nav ${isScrollY ? 'nav--hidden' : ''}`}>
 				<Container>
 					<div className="nav__container">
-						{windowWidth < 1025 ? (
+						{windowWidth < 1025 || forceSmallNav ? (
 							<>
 								<div className="nav__small-nav">
 									<div className="nav__small-nav-left">
@@ -124,7 +153,7 @@ function NavBar({ onCartClick }) {
 						) : (
 							<div className="nav__big-nav">
 								<div className="nav__options">
-									<div className="nav__left">
+									<div className="nav__left" ref={navLeftRef}>
 										{categories.slice(0, 5).map((category) => (
 											<Link to={`category/${category.slug}`} key={category.id} className="nav__links">
 												{category.name}
