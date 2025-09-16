@@ -5,9 +5,8 @@
 	width: 18px;
 	height: 15px;
 	@include flex(column, nowrap, space-between, center);
-	cursor: pointer;
-	border: 0;
 	background: none;
+	padding: 0;
 
 	&__line {
 		width: 100%;
