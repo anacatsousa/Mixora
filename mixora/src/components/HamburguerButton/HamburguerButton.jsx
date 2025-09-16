@@ -1,12 +1,13 @@
+import Button from '../Button/Button';
 import './_hamburguerButton.scss';
 
 function HambuerguerButton({ isOpen, toggle }) {
 	return (
-		<button className={`hamburger ${isOpen ? 'hamburger--open' : ''}`} onClick={toggle} aria-label="Toggle menu">
+		<Button className={`hamburger ${isOpen ? 'hamburger--open' : ''}`} variant="hamburger" onClick={toggle}>
 			<span className="hamburger__line"></span>
 			<span className="hamburger__line"></span>
 			<span className="hamburger__line"></span>
-		</button>
+		</Button>
 	);
 }
 
