@@ -58,36 +58,34 @@ function NavBar({ onCartClick }) {
 	// ***
 
 	const [isScrollY, setIsScrollY] = useState(false);
-	const [lastScrollY, setLastScrollY] = useState(window.scrollY);
+	const lastScrollY = useRef(window.scrollY);
 
 	useEffect(() => {
-		setIsScrollY(false);
 		const handleScroll = () => {
 			const currentScrollY = window.scrollY;
 
-			//  shows if we're at the top
-
 			if (currentScrollY <= 0) {
 				setIsScrollY(false);
-
-				setLastScrollY(0);
+				lastScrollY.current = 0;
+				return;
 			}
 
-			// Hide if scrolling down, show if scrolling up
-
-			if (currentScrollY > lastScrollY) {
+			if (currentScrollY > lastScrollY.current) {
 				setIsScrollY(true); // hide
-			} else if (currentScrollY < lastScrollY) {
-				setIsScrollY(false); // show
+			} else if (currentScrollY < lastScrollY.current) {
+				setIsScrollY(false); // shows
 			}
 
-			setLastScrollY(currentScrollY);
+			lastScrollY.current = currentScrollY;
 		};
+
+		// Força navbar visível ao montar (sem esperar scroll)
+		setIsScrollY(false);
 
 		window.addEventListener('scroll', handleScroll);
 
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, [lastScrollY]);
+	}, []);
 
 	//***
 
