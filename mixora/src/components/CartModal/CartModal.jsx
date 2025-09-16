@@ -15,16 +15,18 @@ function CartModal({ isOpen, onClose }) {
 
 	useEffect(() => {
 		if (isOpen) {
-			// Abrir modal
+			// Open modal
 			setVisibility(true);
 			setClosing(false);
+			document.body.style.overflow = 'hidden';
 		} else if (visibility) {
-			// Iniciar animação de fechar
+			// Init close animation
 			setClosing(true);
-			// Esperar 300ms (duração da animação) para desmontar modal
+			// wait 300ms (animation time) to close modal
 			const timeout = setTimeout(() => {
 				setVisibility(false);
 				setClosing(false);
+				document.body.style.overflow = 'auto';
 			}, 500);
 
 			return () => clearTimeout(timeout);
