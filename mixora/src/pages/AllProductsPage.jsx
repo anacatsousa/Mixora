@@ -1,5 +1,5 @@
-import AllProducts from '../components/AllProducts/AllProducts';
-import HeaderCategoryProducts from '../components/HeaderCategoryproducts/HeaderCategoryproducts';
+import AllProducts from '../components/AllProducts';
+import HeaderCategoryProducts from '../components/HeaderCategoryProducts/HeaderCategoryProducts';
 
 function AllProductsPage() {
 	return (
