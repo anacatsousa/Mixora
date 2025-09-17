@@ -6,9 +6,9 @@ function Button({ to, text, price, hasPrice = false, onClick, className = '', ch
 		return (
 			<Link
 				to={to}
-				className="btn"
+				className={` btn btn--${variant}`}
 				onClick={(e) => {
-					if (onClick) onClick(e); // Isto chama `onClose`
+					if (onClick) onClick(e);
 				}}
 			>
 				{text}
