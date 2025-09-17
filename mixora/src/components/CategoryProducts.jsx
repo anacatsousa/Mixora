@@ -1,10 +1,9 @@
 import { Link } from 'react-router';
-import useProducts from '../../hooks/useProducts';
-import Card from '../Card/Card';
-import Container from '../Container/Container';
-import './_categoryProducts.scss';
-import Loading from '../Loading/Loading';
-import HeaderCategoryProducts from '../HeaderCategoryproducts/HeaderCategoryproducts';
+import useProducts from '@/hooks/useProducts';
+import Container from './Container/Container';
+import '../scss/components/_productsGrid.scss';
+import Loading from './Loading/Loading';
+import Card from './Card/Card';
 
 function CategoryProducts({ category }) {
 	const { products, isLoading } = useProducts();
@@ -12,10 +11,9 @@ function CategoryProducts({ category }) {
 	if (isLoading === true) return <Loading />;
 
 	return (
-		<section className="wrapper-categories">
-			<HeaderCategoryProducts title={category} />
+		<section className="wrapper">
 			<Container>
-				<div className="wrapper-categories__products-grid">
+				<div className="wrapper__products-grid">
 					{products
 						.filter((product) => product.category.slug === category)
 						.map((product) => (

@@ -1,7 +1,7 @@
 @use '@/scss/abstract/index' as *;
 @use '@/scss/base/index' as *;
 
-.wrapper-categories {
+.wrapper {
 	&__products-grid {
 		@include grid(10px, 300px);
 		gap: 10px;
@@ -9,6 +9,6 @@
 	}
 }
 
-.container:has(.wrapper-categories__products-grid) {
+.container:has(.wrapper__products-grid) {
 	background-color: $white;
 }
