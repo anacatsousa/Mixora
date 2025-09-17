@@ -9,34 +9,17 @@
 	scrollbar-width: none;
 	position: relative;
 
-	//@include grid(10px, 400px);
-
 	& > * {
 		flex: 0 0 auto;
-		width: clamp(100px, calc(100vw / 3), 500px);
+		width: clamp(100px, calc(100% / 3), 100%);
 		scroll-snap-align: start;
-	}
-}
 
-@media (max-width: 1024px) {
-	.header-products > * {
-		width: clamp(100px, calc(100vw / 3), 400px);
-	}
-}
+		@include tablet {
+			width: clamp(100px, calc(100% / 2), 100%);
+		}
 
-@media (max-width: 768px) {
-	.header-products > * {
-		width: clamp(100px, calc(100vw / 2), 382px);
-	}
-}
-@media (max-width: 576px) {
-	.header-products > * {
-		width: clamp(100px, calc(100vw / 1), 576px);
-	}
-}
-
-@media (max-width: 415px) {
-	.header-products > * {
-		width: clamp(100px, calc(100vw / 1), 500px);
+		@include mobile {
+			width: clamp(100px, calc(100% / 1), 100%);
+		}
 	}
 }
