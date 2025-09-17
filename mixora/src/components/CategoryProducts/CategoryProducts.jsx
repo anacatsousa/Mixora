@@ -3,9 +3,8 @@ import useProducts from '../../hooks/useProducts';
 import Card from '../Card/Card';
 import Container from '../Container/Container';
 import './_categoryProducts.scss';
-import BackButton from '../BackButton/BackButton';
 import Loading from '../Loading/Loading';
-import Button from '../Button/Button';
+import HeaderCategoryProducts from '../HeaderCategoryproducts/HeaderCategoryproducts';
 
 function CategoryProducts({ category }) {
 	const { products, isLoading } = useProducts();
@@ -14,10 +13,7 @@ function CategoryProducts({ category }) {
 
 	return (
 		<section className="wrapper-categories">
-			<div className="wrapper-categories__header">
-				<BackButton />
-				<h2 className="wrapper-categories__title">{category}</h2>
-			</div>
+			<HeaderCategoryProducts title={category} />
 			<Container>
 				<div className="wrapper-categories__products-grid">
 					{products
