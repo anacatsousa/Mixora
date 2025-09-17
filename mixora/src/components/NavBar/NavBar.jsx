@@ -80,7 +80,6 @@ function NavBar({ onCartClick }) {
 			lastScrollY.current = currentScrollY;
 		};
 
-		// Força navbar visível ao montar (sem esperar scroll)
 		setIsScrollY(false);
 
 		window.addEventListener('scroll', handleScroll);
@@ -96,7 +95,6 @@ function NavBar({ onCartClick }) {
 
 	const { cartItems } = useCart();
 	const total = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-
 
 	// ***
 
@@ -126,7 +124,6 @@ function NavBar({ onCartClick }) {
 
 	if (isLoading === true) return <Loading />;
 
-
 	return (
 		<>
 			<nav className={`nav ${isScrollY ? 'nav--hidden' : ''}`}>
@@ -135,7 +132,7 @@ function NavBar({ onCartClick }) {
 						{windowWidth < 1025 || forceSmallNav ? (
 							<>
 								<div className="nav__small-nav">
-									<div className="nav__small-nav-left">
+									<div className="nav__small-nav-left" ref={navLeftRef}>
 										<HambuerguerButton isOpen={isOpen} toggle={toggleMenu} />
 									</div>
 									<Link to={'/'}>
