@@ -101,7 +101,7 @@ function CartModal({ isOpen, onClose }) {
 											<p>{total.toFixed(2)} €</p>
 										</div>
 									)}
-									<Button text={cartItems.length === 0 ? 'Continue Shopping' : 'Checkout'} hasPrice={false} />
+									<Button text={cartItems.length === 0 ? 'Continue Shopping' : 'Checkout'} to={cartItems.length === 0 ? '/all' : undefined} onClick={onClose} />
 								</div>
 							</div>
 						</Container>
