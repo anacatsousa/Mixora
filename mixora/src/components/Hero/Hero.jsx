@@ -2,17 +2,8 @@ import './_hero.scss';
 import backgroundVideo from '@/assets/background_video.mp4';
 import Button from '@/components/Button/Button';
 import Container from '@/components/Container/Container';
-import { useEffect } from 'react';
 
 function Hero() {
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-
-	useEffect(() => {
-		console.log(document.activeElement);
-	}, []);
-
 	return (
 		<section className="hero">
 			<div className="hero__background-video">
