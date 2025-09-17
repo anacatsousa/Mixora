@@ -1,0 +1,30 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.back-button {
+	background: transparent;
+	margin-bottom: 40px;
+	padding: 0;
+	color: $primary-color;
+	gap: 10px;
+	@include flex(row, wrap, flex-start, center);
+	transition: 0.5s ease-in-out;
+	z-index: 1005;
+	position: relative;
+
+	&:hover {
+		gap: 5px;
+	}
+
+	&--absolute {
+		position: absolute;
+		z-index: 1003;
+		left: 20px;
+		top: 130px;
+	}
+
+	&__icon {
+		color: $primary-color;
+		stroke-width: 1.5px;
+	}
+}

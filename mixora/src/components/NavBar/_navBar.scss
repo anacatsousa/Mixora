@@ -7,6 +7,7 @@
 	width: 100%;
 	z-index: 1000;
 	transition: transform 0.3s ease;
+	transform: translateY(0);
 
 	&.nav--hidden {
 		transform: translateY(-100%);
@@ -20,17 +21,6 @@
 	&__options {
 		@include flex(row, nowrap, space-between, center);
 		position: relative;
-	}
-
-	&__center-measure {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		pointer-events: none;
-		width: 100px;
-		height: 20px;
-		opacity: 0;
 	}
 
 	&__icons {
@@ -47,7 +37,21 @@
 		&--small-nav {
 			font-size: $samll-nav;
 			width: 100%;
+			margin-bottom: 20px;
 			@include flex(row, nowrap, space-between, center);
+		}
+	}
+
+	&__left {
+		@include flex(row, nowrap, flex-start, center);
+		overflow-x: hidden;
+		max-width: 50%;
+	}
+
+	&__right {
+		@include flex(row, nowrap, flex-start, flex-end);
+		a {
+			height: 22px;
 		}
 	}
 
@@ -62,6 +66,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		margin-left: 50px;
 
 		@include tablet {
 			max-width: 85px;
@@ -97,7 +102,7 @@
 		left: 0;
 
 		&--open {
-			animation: navSlideIn 0.3s ease-in-out forwards;
+			animation: navSlideIn 0.2s ease-in-out forwards;
 		}
 
 		&--closed {

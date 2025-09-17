@@ -6,6 +6,10 @@
 	transition: border-color 0.3s ease-in-out;
 	padding-bottom: 5px;
 	margin-bottom: 25px;
+	border: 0;
+	background: none;
+	margin-bottom: 0;
+	cursor: pointer;
 
 	&:hover {
 		border-bottom: 1px solid currentColor;
