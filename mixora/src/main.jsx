@@ -10,6 +10,7 @@ import CategoryPage from './pages/CategoryPage.jsx';
 import ProductPage from './pages/ProductPage.jsx';
 import Layout from './components/layout.jsx';
 import { CartProvider } from './context/CartContext.jsx';
+import AllProductsPage from './pages/AllProductsPage.jsx';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
 				<Routes>
 					<Route element={<Layout />}>
 						<Route path="/" element={<HomePage />} />
+						<Route path="/all" element={<AllProductsPage />} />
 						<Route path="/category/:slug" element={<CategoryPage />} />
 						<Route path="/category/:categorySlug/:productSlug" element={<ProductPage />} />
 						<Route path="*" element={<NotFoundPage />} />
