@@ -4,7 +4,13 @@ import './_button.scss';
 function Button({ to, text, price, hasPrice = false, onClick, className = '', children, variant = 'default', disabled = false }) {
 	if (to) {
 		return (
-			<Link to={to} className="btn">
+			<Link
+				to={to}
+				className="btn"
+				onClick={(e) => {
+					if (onClick) onClick(e); // Isto chama `onClose`
+				}}
+			>
 				{text}
 			</Link>
 		);
