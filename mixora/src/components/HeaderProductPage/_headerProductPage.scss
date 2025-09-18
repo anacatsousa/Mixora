@@ -4,10 +4,12 @@
 .header-products {
 	@include flex(row, nowrap, flex-start, flex-start);
 	gap: 5px;
-	overflow: scroll;
+	overflow-x: scroll;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 	position: relative;
+	// height: 350px;
+	// overflow-y: hidden;
 
 	& > * {
 		flex: 0 0 auto;
@@ -20,6 +22,26 @@
 
 		@include mobile {
 			width: clamp(100px, calc(100% / 1), 100%);
+		}
+	}
+
+	&--two {
+		& > * {
+			flex: 0 0 auto;
+			width: clamp(100px, calc(100% / 2), 100%);
+			scroll-snap-align: start;
+
+			@include mobile {
+				width: clamp(100px, calc(100% / 1), 100%);
+			}
+		}
+	}
+
+	&--one {
+		& > * {
+			flex: 0 0 auto;
+			width: clamp(100px, calc(100% / 1), 100%);
+			scroll-snap-align: start;
 		}
 	}
 }
