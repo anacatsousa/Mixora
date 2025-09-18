@@ -1,0 +1,13 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.header-static {
+	background-color: $secondary-color;
+	padding: 190px 20px 60px 20px;
+
+	&__title {
+		font-size: $h2;
+		color: $primary-color;
+		text-transform: capitalize;
+	}
+}
