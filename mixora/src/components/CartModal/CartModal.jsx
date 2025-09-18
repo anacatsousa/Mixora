@@ -32,42 +32,42 @@ function CartModal({ isOpen, onClose }) {
 							) : (
 								<ul className="cart__products">
 									{cartItems.map((item) => (
-										<Link to={`/category/${item.category.slug}/${item.slug}`} key={item.id} onClick={onClose}>
-											<li key={item.id}>
-												<div className="cart__product-section">
-													<div className="cart__info-section">
+										<li key={item.id}>
+											<div className="cart__product-section">
+												<div className="cart__info-section">
+													<Link to={`/category/${item.category.slug}/${item.slug}`} key={item.id} onClick={onClose}>
 														<img src={item.images[0]} alt={item.slug} className="cart__img" />
-														<div className="cart__info">
-															<div>
-																<p>{item.category.name}</p>
-																<p className="cart__product-name">{item.title}</p>
-															</div>
-															<div className="cart__quantity-section">
-																{item.quantity === 1 ? (
-																	<Button disabled={true} variant="cart">
-																		<Minus />
-																	</Button>
-																) : (
-																	<Button hasPrice={false} onClick={() => removeProductFromCart(item)} variant="cart">
-																		<Minus />
-																	</Button>
-																)}
-																<p>{item.quantity}</p>
-																<Button hasPrice={false} onClick={() => addProductToCart(item)} variant="cart">
-																	<Plus />
+													</Link>
+													<div className="cart__info">
+														<div>
+															<p>{item.category.name}</p>
+															<p className="cart__product-name">{item.title}</p>
+														</div>
+														<div className="cart__quantity-section">
+															{item.quantity === 1 ? (
+																<Button disabled={true} variant="cart">
+																	<Minus />
 																</Button>
-															</div>
+															) : (
+																<Button hasPrice={false} onClick={() => removeProductFromCart(item)} variant="cart">
+																	<Minus />
+																</Button>
+															)}
+															<p>{item.quantity}</p>
+															<Button hasPrice={false} onClick={() => addProductToCart(item)} variant="cart">
+																<Plus />
+															</Button>
 														</div>
 													</div>
-													<div className="cart__small-section">
-														<p>{item.price} €</p>
-														<Button hasPrice={false} onClick={() => deleteProductFromCart(item)} variant="cart">
-															<Trash2 />
-														</Button>
-													</div>
 												</div>
-											</li>
-										</Link>
+												<div className="cart__small-section">
+													<p>{item.price} €</p>
+													<Button hasPrice={false} onClick={() => deleteProductFromCart(item)} variant="cart">
+														<Trash2 />
+													</Button>
+												</div>
+											</div>
+										</li>
 									))}
 								</ul>
 							)}
