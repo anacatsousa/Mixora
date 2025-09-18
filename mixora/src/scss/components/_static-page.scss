@@ -1,0 +1,22 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.static-page {
+	height: calc(100vh - 282px);
+	font-size: $text-static;
+	background-color: $white;
+	line-height: 1.2;
+
+	@include mobile {
+		height: auto;
+	}
+
+	& > .container {
+		//padding-top: 0;
+		background-color: $white;
+	}
+
+	p:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
