@@ -1,0 +1,90 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.modal {
+	position: fixed;
+	z-index: 9999;
+	&__overlay {
+		position: fixed;
+		top: 0;
+		right: 0;
+		@include flex(row, nowrap, flex-end, center);
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba($primary-color, 0.5);
+		backdrop-filter: blur(10px);
+		z-index: 9999;
+	}
+
+	&__base {
+		background-color: $white;
+
+		&--full {
+			width: 100vw;
+		}
+
+		&--half {
+			width: 45vw;
+		}
+
+		&--open-right {
+			animation: modalSlideInRight 0.5s ease-in-out forwards;
+		}
+		&--closed-right {
+			animation: modalSlideOutRight 0.5s ease-in-out forwards;
+		}
+		&--open-top {
+			animation: modalSlideInTop 0.5s ease-in-out forwards;
+		}
+		&--closed-top {
+			animation: modalSlideOutTop 0.5s ease-in-out forwards;
+		}
+		@include tablet {
+			width: 100vw;
+		}
+	}
+}
+
+@keyframes modalSlideInRight {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes modalSlideOutRight {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+}
+
+@keyframes modalSlideInTop {
+	from {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes modalSlideOutTop {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}

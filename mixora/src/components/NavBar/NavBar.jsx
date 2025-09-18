@@ -13,7 +13,7 @@ import { useCart } from '../../hooks/useCart';
 import Button from '@/components/Button/Button';
 import Loading from '../Loading/Loading';
 
-function NavBar({ onCartClick }) {
+function NavBar({ onCartClick, onSearchClick }) {
 	const { categories, isLoading } = useCategories([]);
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -139,9 +139,9 @@ function NavBar({ onCartClick }) {
 										<img src={logo} alt="logo" className="nav__logo" />
 									</Link>
 									<div className="nav__small-nav-right">
-										<Search className="nav__icons" />
+										<Search className="nav__icons" onClick={onSearchClick} />
 										<User className="nav__icons" />
-										<Button text={`[ ${total} ]`} hasPrice={false} onClick={onCartClick} variant="icon" />
+										<Button text={`[ ${total} ]`} onClick={onCartClick} variant="icon" />
 									</div>
 								</div>
 							</>
@@ -161,13 +161,11 @@ function NavBar({ onCartClick }) {
 										</Link>
 									</div>
 									<div className="nav__right">
-										<Link to={'#'} className="nav__links">
-											Search
-										</Link>
+										<Button text="Search" onClick={onSearchClick} variant="link" />
 										<Link to={'#'} className="nav__links">
 											Account
 										</Link>
-										<Button text={`Bag [ ${total} ]`} hasPrice={false} onClick={onCartClick} variant="link" />
+										<Button text={`Bag [ ${total} ]`} onClick={onCartClick} variant="link" />
 									</div>
 								</div>
 							</div>
