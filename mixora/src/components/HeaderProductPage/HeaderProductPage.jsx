@@ -22,14 +22,17 @@ function HeaderProductPage({ categorySlug, productSlug }) {
 	if (!products || products.length === 0) return <span> no product</span>;
 
 	return (
-		<section className="header-products">
+		//<section className="header-products">
+		<section className={`header-products ${product.images.length === 2 ? 'header-products--two' : product.images.length === 1 ? 'header-products--one' : ''}`}>
 			<BackButton absolute={true} />
 			{product.images.map((img) => (
 				<img
+					key={img}
 					src={isValidImg(img) ? img : noPhoto}
 					alt={product.slug}
-					className={`header-products__images ${img === 2 ? 'header-products__images--two' : img === 1 ? 'header-products__images--one' : ''}`}
-				/> //className="header-products__images"
+					className="header-products__images"
+					//className={`header-products__images ${product.images.length === 2 ? 'header-products__images--two' : product.images.length === 1 ? 'header-products__images--one' : ''}`}
+				/>
 			))}
 		</section>
 	);
