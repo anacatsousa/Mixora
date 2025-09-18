@@ -49,13 +49,14 @@
 	}
 
 	&__right {
-		@include flex(row, nowrap, flex-start, flex-end);
+		@include flex(row, nowrap, flex-start, center);
+		gap: 25px;
 		a {
 			height: 22px;
 		}
 	}
 
-	&__right &__links:last-child {
+	&__right &__links {
 		margin-right: 0;
 	}
 

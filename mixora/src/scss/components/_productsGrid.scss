@@ -2,10 +2,19 @@
 @use '@/scss/base/index' as *;
 
 .wrapper {
+	overflow: auto;
 	&__products-grid {
 		@include grid(10px, 300px);
 		gap: 10px;
 		background-color: $white;
+
+		@include tablet {
+			@include grid(10px, 250px);
+		}
+
+		@include mobile {
+			@include grid(10px, 150px);
+		}
 	}
 }
 
