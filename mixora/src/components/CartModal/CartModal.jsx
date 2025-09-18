@@ -7,6 +7,7 @@ import { Plus } from 'lucide-react';
 import { Minus } from 'lucide-react';
 import { Trash2 } from 'lucide-react';
 import ModalBase from '../ModalBase/ModalBase';
+import { Link } from 'react-router';
 
 function CartModal({ isOpen, onClose }) {
 	const { cartItems, addProductToCart, removeProductFromCart, getCartTotalPrice, deleteProductFromCart } = useCart();
@@ -31,40 +32,42 @@ function CartModal({ isOpen, onClose }) {
 							) : (
 								<ul className="cart__products">
 									{cartItems.map((item) => (
-										<li key={item.id}>
-											<div className="cart__product-section">
-												<div className="cart__info-section">
-													<img src={item.images[0]} alt={item.slug} className="cart__img" />
-													<div className="cart__info">
-														<div>
-															<p>{item.category.name}</p>
-															<p className="cart__product-name">{item.title}</p>
-														</div>
-														<div className="cart__quantity-section">
-															{item.quantity === 1 ? (
-																<Button disabled={true} variant="cart">
-																	<Minus />
+										<Link to={`/category/${item.category.slug}/${item.slug}`} key={item.id} onClick={onClose}>
+											<li key={item.id}>
+												<div className="cart__product-section">
+													<div className="cart__info-section">
+														<img src={item.images[0]} alt={item.slug} className="cart__img" />
+														<div className="cart__info">
+															<div>
+																<p>{item.category.name}</p>
+																<p className="cart__product-name">{item.title}</p>
+															</div>
+															<div className="cart__quantity-section">
+																{item.quantity === 1 ? (
+																	<Button disabled={true} variant="cart">
+																		<Minus />
+																	</Button>
+																) : (
+																	<Button hasPrice={false} onClick={() => removeProductFromCart(item)} variant="cart">
+																		<Minus />
+																	</Button>
+																)}
+																<p>{item.quantity}</p>
+																<Button hasPrice={false} onClick={() => addProductToCart(item)} variant="cart">
+																	<Plus />
 																</Button>
-															) : (
-																<Button hasPrice={false} onClick={() => removeProductFromCart(item)} variant="cart">
-																	<Minus />
-																</Button>
-															)}
-															<p>{item.quantity}</p>
-															<Button hasPrice={false} onClick={() => addProductToCart(item)} variant="cart">
-																<Plus />
-															</Button>
+															</div>
 														</div>
 													</div>
+													<div className="cart__small-section">
+														<p>{item.price} €</p>
+														<Button hasPrice={false} onClick={() => deleteProductFromCart(item)} variant="cart">
+															<Trash2 />
+														</Button>
+													</div>
 												</div>
-												<div className="cart__small-section">
-													<p>{item.price} €</p>
-													<Button hasPrice={false} onClick={() => deleteProductFromCart(item)} variant="cart">
-														<Trash2 />
-													</Button>
-												</div>
-											</div>
-										</li>
+											</li>
+										</Link>
 									))}
 								</ul>
 							)}
