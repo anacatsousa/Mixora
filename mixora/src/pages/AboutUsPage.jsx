@@ -9,7 +9,7 @@ function AboutUsPage() {
 			<ScrollToTop />
 			<section>
 				<HeaderStaticPages title="About Us" />
-				<div className="static-page">
+				<div className="static-page static-page--height">
 					<Container>
 						<p>
 							Mixora is a fictional eCommerce platform built for educational and portfolio purposes. It demonstrates how to build a modern online store using React and SCSS, with

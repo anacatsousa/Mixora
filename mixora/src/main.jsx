@@ -12,6 +12,8 @@ import Layout from './components/layout.jsx';
 import { CartProvider } from './context/CartContext.jsx';
 import AllProductsPage from './pages/AllProductsPage.jsx';
 import AboutUsPage from './pages/AboutUsPage.jsx';
+import PrivacyCookiesPage from './pages/PrivacyCookiesPage.jsx';
+import TermsConditionsPage from './pages/TermsConditionsPage.jsx';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -24,6 +26,9 @@ createRoot(document.getElementById('root')).render(
 						<Route path="/category/:slug" element={<CategoryPage />} />
 						<Route path="/category/:categorySlug/:productSlug" element={<ProductPage />} />
 						<Route path="/about" element={<AboutUsPage />} />
+						<Route path="/terms&conditions" element={<TermsConditionsPage />} />
+						<Route path="/privacy&cookies" element={<PrivacyCookiesPage />} />
+
 						<Route path="*" element={<NotFoundPage />} />
 					</Route>
 				</Routes>
