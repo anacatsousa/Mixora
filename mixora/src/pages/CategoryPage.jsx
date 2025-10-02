@@ -2,8 +2,8 @@ import { useParams } from 'react-router';
 import ScrollToTop from '../components/ScrollToTop';
 import CategoryProducts from '../components/CategoryProducts';
 import HeaderCategoryProducts from '../components/HeaderCategoryProducts/HeaderCategoryProducts';
-
 import useProducts from '@/hooks/useProducts';
+import Loading from '../components/Loading/Loading';
 
 function CategoryPage() {
 	const params = useParams();
@@ -12,7 +12,7 @@ function CategoryPage() {
 
 	const category = products.find((p) => p.category.slug === slug)?.category;
 
-	if (!category) return <span>Category not found</span>;
+	if (!category) return <Loading />;
 
 	return (
 		<>

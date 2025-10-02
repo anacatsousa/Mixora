@@ -11,6 +11,11 @@
 		position: relative;
 		overflow: hidden;
 		aspect-ratio: 1 / 1;
+		&--skeleton {
+			background-color: $secondary-color;
+			position: relative;
+			overflow: hidden;
+		}
 	}
 
 	&__img {
@@ -29,6 +34,24 @@
 		font-size: $h4;
 		margin: 15px 0 10px 0;
 		font-weight: 600;
+
+		&--skeleton {
+			background-color: $secondary-color;
+			height: 18px;
+			position: relative;
+			overflow: hidden;
+			width: 70%;
+		}
+	}
+
+	&__price {
+		&--skeleton {
+			background-color: $secondary-color;
+			height: 18px;
+			position: relative;
+			overflow: hidden;
+			width: 20%;
+		}
 	}
 
 	&__category {
@@ -37,5 +60,26 @@
 		left: 0;
 		padding: 5px;
 		background-color: $secondary-color;
+	}
+
+	/* shimmer effect */
+
+	&__img-container--skeleton::after,
+	&__title--skeleton::after,
+	&__price--skeleton::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		height: 100%;
+		width: 100%;
+		background: linear-gradient(90deg, transparent, rgba($white, 0.4), transparent);
+		animation: shimmer 1.5s infinite;
+	}
+
+	@keyframes shimmer {
+		100% {
+			left: 100%;
+		}
 	}
 }

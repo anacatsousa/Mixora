@@ -10,7 +10,19 @@ function isValidImg(src) {
 	return trimmed !== '' && trimmed !== 'undefined' && validExtensions.some((ext) => trimmed.endsWith(ext));
 }
 
-function Card({ img, title, price, category, showCategory = true }) {
+function Card({ img, title, price, category, showCategory = true, isLoading = false }) {
+	if (isLoading) {
+		return (
+			<>
+				<div className="card">
+					<div className="card__img-container card__img-container--skeleton" />
+					<div className="card__title card__title--skeleton" />
+					<div className="card__price card__price--skeleton" />
+				</div>
+			</>
+		);
+	}
+
 	return (
 		<div className="card">
 			<div className="card__img-container">

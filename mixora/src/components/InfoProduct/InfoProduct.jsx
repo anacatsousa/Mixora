@@ -21,7 +21,7 @@ function InfoProduct({ categorySlug, productSlug }) {
 	}
 
 	const product = products.find((product) => product.category.slug === categorySlug && product.slug === productSlug);
-	if (!products || products.length === 0) return <span> no product</span>;
+	if (!products || products.length === 0) return <Loading />;
 
 	if (isLoading === true) return <Loading />;
 
