@@ -26,7 +26,7 @@ function HeaderProductPage({ categorySlug, productSlug }) {
 		const container = scrollRef.current;
 		if (container) {
 			const card = container.querySelector(':scope > *');
-			const scrollAmount = card ? card.offsetWidth + 10 : 370;
+			const scrollAmount = card ? card.offsetWidth + 5 : 370;
 
 			container.scrollBy({
 				left: direction === 'left' ? -scrollAmount : scrollAmount,
