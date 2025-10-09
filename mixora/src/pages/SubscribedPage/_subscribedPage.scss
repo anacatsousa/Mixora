@@ -1,0 +1,16 @@
+@use '@/scss/abstract/index' as *;
+@use '@/scss/base/index' as *;
+
+.subscribed {
+	height: 100vh;
+	@include flex(column, nowrap, center, center);
+	text-align: center;
+	&__title {
+		font-size: $h2;
+		margin-bottom: 2rem;
+	}
+	&__link {
+		@extend %link;
+		color: $primary-color;
+	}
+}
