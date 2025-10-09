@@ -6,10 +6,27 @@ import { Link } from 'react-router';
 import { useCart } from '@/hooks/useCart';
 import Loading from '../Loading/Loading';
 import noPhoto from '@/assets/no_photo.png';
+import { useState } from 'react';
 
 function InfoProduct({ categorySlug, productSlug }) {
 	const { products, isLoading } = useProducts();
 	const { addProductToCart } = useCart();
+	const [activeSection, setActiveSection] = useState(null);
+
+	// Section details for product information
+
+	const section = [
+		{ title: 'Product Dimensions', content: 'Width: X cm, Height: X cm, Depth: X cm.' },
+		{ title: 'Composition, Care Instructions, and Origin', content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. ' },
+		{ title: 'Check Store Availability', content: 'Available in Lisbon, Porto, and Braga stores.' },
+		{ title: 'Shipping, Exchanges, and Returns', content: 'Free shipping on orders over €50. Returns accepted within 30 days.' },
+	];
+
+	const toggleSection = (index) => {
+		setActiveSection(activeSection === index ? null : index);
+	};
+
+	// Validate image URL
 
 	function isValidImg(src) {
 		if (typeof src !== 'string') return false;
@@ -19,6 +36,8 @@ function InfoProduct({ categorySlug, productSlug }) {
 
 		return trimmed !== '' && trimmed !== 'undefined' && validExtensions.some((ext) => trimmed.endsWith(ext));
 	}
+
+	// Find the product based on categorySlug and productSlug
 
 	const product = products.find((product) => product.category.slug === categorySlug && product.slug === productSlug);
 	if (!products || products.length === 0) return <Loading />;
@@ -43,26 +62,15 @@ function InfoProduct({ categorySlug, productSlug }) {
 						<div className="info-product__flex--space">
 							<p className="info-product__description">{product.description}</p>
 							<ul className="info-product__container-links">
-								<li>
-									<Link to={'#'} className="info-product__links">
-										Product Dimensions
-									</Link>
-								</li>
-								<li>
-									<Link to={'#'} className="info-product__links">
-										Composition, Care Instructions, and Origin
-									</Link>
-								</li>
-								<li>
-									<Link to={'#'} className="info-product__links">
-										Check Store Availability
-									</Link>
-								</li>
-								<li>
-									<Link to={'#'} className="info-product__links">
-										Shipping, Exchanges, and Returns
-									</Link>
-								</li>
+								{section.map((section, index) => (
+									<li key={index}>
+										<Button className={`info-product__links ${activeSection === index ? 'info-product__links--active' : ''}`} variant="link" onClick={() => toggleSection(index)}>
+											{section.title}
+										</Button>
+
+										{activeSection === index && <p className="info-product__section-content">{section.content}</p>}
+									</li>
+								))}
 							</ul>
 						</div>
 					</div>

@@ -48,7 +48,21 @@
 	}
 
 	&__links {
-		@extend %link;
-		color: $primary-color;
+		padding-bottom: 5px;
+		background-color: $secondary-color;
+		font-size: $h4;
+
+		&--active {
+			border-bottom: 1px solid $primary-color;
+		}
+	}
+
+	&__section-content {
+		margin-top: 1rem;
+		margin-bottom: 2.5rem;
+
+		li:last-child & {
+			margin-bottom: 0;
+		}
 	}
 }
