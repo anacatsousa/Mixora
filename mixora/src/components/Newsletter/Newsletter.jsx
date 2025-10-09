@@ -3,10 +3,12 @@ import './_newsletter.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowPointer } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 function Newsletter() {
 	const [email, setEmail] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
+	const navigate = useNavigate();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -15,10 +17,8 @@ function Newsletter() {
 			setErrorMessage('This is not a valid email!');
 		} else {
 			setErrorMessage('');
-
-			alert('Email subscrito:', email);
-
 			setEmail('');
+			navigate('/subscribed');
 		}
 	};
 
@@ -35,7 +35,7 @@ function Newsletter() {
 							<div className="newsletter__input-group">
 								<div className="newsletter__input-wrapper">
 									<input
-										type="text"
+										type="email"
 										name="email"
 										placeholder="Email Address"
 										className="newsletter__input"
