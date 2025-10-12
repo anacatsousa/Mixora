@@ -18,7 +18,6 @@ function CartModal({ isOpen, onClose }) {
 		<>
 			<ModalBase isOpen={isOpen} variant="half">
 				<Container>
-					{/* <div className="cart__modal-section"> */}
 					<div className="cart">
 						<div className="cart__header">
 							<h3 className="cart__title">Bag</h3>

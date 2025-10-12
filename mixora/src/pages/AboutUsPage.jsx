@@ -1,12 +1,12 @@
 import Container from '../components/Container/Container';
 import HeaderStaticPages from '../components/HeaderStaticPages/HeaderStaticPages';
-import ScrollToTop from '../components/ScrollToTop';
+import useScrollToTop from '../hooks/useScrollToTop';
 import '../scss/components/_static-page.scss';
 
 function AboutUsPage() {
+	useScrollToTop();
 	return (
 		<>
-			<ScrollToTop />
 			<section>
 				<HeaderStaticPages title="About Us" />
 				<div className="static-page static-page--height">

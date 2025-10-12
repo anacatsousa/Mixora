@@ -1,11 +1,11 @@
 import AllProducts from '../components/AllProducts';
 import HeaderCategoryProducts from '../components/HeaderCategoryProducts/HeaderCategoryProducts';
-import ScrollToTop from '../components/ScrollToTop';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 function AllProductsPage() {
+	useScrollToTop();
 	return (
 		<>
-			<ScrollToTop />
 			<HeaderCategoryProducts title="All Products" />
 			<AllProducts />
 		</>

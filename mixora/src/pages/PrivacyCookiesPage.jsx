@@ -1,12 +1,12 @@
 import Container from '../components/Container/Container';
 import HeaderStaticPages from '../components/HeaderStaticPages/HeaderStaticPages';
-import ScrollToTop from '../components/ScrollToTop';
+import useScrollToTop from '../hooks/useScrollToTop';
 import '../scss/components/_static-page.scss';
 
 function PrivacyCookiesPage() {
+	useScrollToTop();
 	return (
 		<>
-			<ScrollToTop />
 			<section>
 				<HeaderStaticPages title="Privacy & Cookies" />
 				<div className="static-page">
