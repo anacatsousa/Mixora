@@ -1,11 +1,11 @@
 import Hero from '../components/Hero/Hero';
 import HomeProducts from '../components/HomeProducts/HomeProducts';
-import ScrollToTop from '../components/ScrollToTop';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 function HomePage() {
+	useScrollToTop();
 	return (
 		<>
-			<ScrollToTop />
 			<Hero />
 			<HomeProducts />
 		</>

@@ -1,14 +1,14 @@
 import { useParams } from 'react-router';
 import HeaderProductPage from '@/components/HeaderProductPage/HeaderProductPage';
 import InfoProduct from '@/components/InfoProduct/InfoProduct';
-import ScrollToTop from '@/components/ScrollToTop';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 function ProductPage() {
 	const { categorySlug, productSlug } = useParams();
+	useScrollToTop();
 
 	return (
 		<>
-			<ScrollToTop />
 			<HeaderProductPage categorySlug={categorySlug} productSlug={productSlug} />
 			<InfoProduct categorySlug={categorySlug} productSlug={productSlug} />
 		</>

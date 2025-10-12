@@ -13,10 +13,6 @@ function BackButton({ absolute = false }) {
 			<ChevronLeft className="back-button__icon" />
 			<span>Back</span>
 		</Button>
-		// <button onClick={handleBack} className={`back-button ${absolute ? 'back-button--absolute' : ''}`}>
-		// 	<ChevronLeft className="back-button__icon" />
-		// 	Back
-		// </button>
 	);
 }
 
