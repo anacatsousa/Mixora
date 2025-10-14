@@ -2,7 +2,7 @@
 @use '@/scss/base/index' as *;
 
 .static-page {
-	height: 100%;
+	height: 100dvh;
 	font-size: $text-static;
 	background-color: $white;
 	line-height: 1.2;
@@ -16,7 +16,6 @@
 	}
 
 	& > .container {
-		//padding-top: 0;
 		background-color: $white;
 	}
 
@@ -24,10 +23,111 @@
 		margin-bottom: 2rem;
 	}
 
+	/* ===========================================
+	   SECÇÃO + ANIMAÇÃO BORDER + CONTEÚDO
+	   =========================================== */
+	&__section {
+		position: relative;
+		border-bottom: 1px solid $primary-color;
+		overflow: hidden;
+		padding: 5px 0;
+		margin-bottom: 1rem;
+		transition: all 0.5s ease-in-out;
+
+		.static-page__content-wrapper {
+			overflow: hidden;
+		}
+
+		.static-page__info-tabs {
+			max-height: 0;
+			opacity: 0;
+			transform: translateY(-10px);
+			transition: all 0.5s ease-in-out;
+		}
+
+		&.active {
+			padding-bottom: 20px;
+
+			.static-page__info-tabs--visible {
+				max-height: 1000px;
+				opacity: 1;
+
+				padding: 20px 0;
+			}
+		}
+
+		&.closing {
+			.static-page__info-tabs--visible {
+				max-height: 0;
+				opacity: 0;
+			}
+		}
+	}
+
 	&__subtitle {
 		font-size: $h3;
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 600;
-		margin-bottom: 1rem;
+		width: 100%;
+		text-align: left;
+	}
+
+	&__info-tabs {
+		li {
+			line-height: 1.5;
+		}
+	}
+
+	&__content-info {
+		margin-bottom: 40px;
+	}
+
+	&__content-info-two {
+		margin-top: 40px;
+	}
+
+	&__form-group {
+		@include flex(column, nowrap, flex-start, flex-start);
+		margin-bottom: 40px;
+	}
+	&__label {
+		height: 20px;
+		margin-bottom: 20px;
+		font-weight: 600;
+		&:after {
+			content: '*';
+			color: $orange;
+			margin-left: 2px;
+		}
+	}
+	&__input {
+		@extend %input;
+	}
+	&__textarea {
+		@extend %input;
+		border: 1px solid $primary-color;
+		padding: 10px;
+	}
+	&__input::placeholder,
+	&__textarea::placeholder {
+		color: $primary-color;
+		font-size: 0.95rem;
+		font-style: italic;
+		letter-spacing: 0.5px;
+	}
+
+	&__input:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0 50px $white inset;
+		-webkit-text-fill-color: $primary-color !important;
+	}
+
+	&__error-message {
+		color: $orange;
+		font-size: 0.85rem;
+		margin-top: 5px;
+		display: none;
+	}
+	.invalid {
+		display: block;
 	}
 }

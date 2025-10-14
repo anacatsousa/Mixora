@@ -14,7 +14,12 @@ import AllProductsPage from './pages/AllProductsPage.jsx';
 import AboutUsPage from './pages/AboutUsPage.jsx';
 import PrivacyCookiesPage from './pages/PrivacyCookiesPage.jsx';
 import TermsConditionsPage from './pages/TermsConditionsPage.jsx';
-import SubscribedPage from './pages/SubscribedPage/SubscribedPage.jsx';
+import StoresPage from './pages/StoresPage.jsx';
+import CareesPage from './pages/CareesPage.jsx';
+import FaqPage from './pages/FaqPage.jsx';
+import ContactUsPage from './pages/ContactUsPage.jsx';
+import DeliveryAndReturnsPage from './pages/DeliveryAndReturnsPage.jsx';
+import SuccessPage from './pages/SuccessPage/SuccessPage.jsx';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -29,7 +34,12 @@ createRoot(document.getElementById('root')).render(
 						<Route path="/about" element={<AboutUsPage />} />
 						<Route path="/terms&conditions" element={<TermsConditionsPage />} />
 						<Route path="/privacy&cookies" element={<PrivacyCookiesPage />} />
-						<Route path="/subscribed" element={<SubscribedPage />} />
+						<Route path="/success" element={<SuccessPage />} />
+						<Route path="/careers" element={<CareesPage />} />
+						<Route path="/stores" element={<StoresPage />} />
+						<Route path="/faq" element={<FaqPage />} />
+						<Route path="/contact" element={<ContactUsPage />} />
+						<Route path="/delivery&returns" element={<DeliveryAndReturnsPage />} />
 						<Route path="*" element={<NotFoundPage />} />
 					</Route>
 				</Routes>
