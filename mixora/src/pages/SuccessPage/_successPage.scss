@@ -1,7 +1,7 @@
 @use '@/scss/abstract/index' as *;
 @use '@/scss/base/index' as *;
 
-.subscribed {
+.success {
 	height: 100vh;
 	@include flex(column, nowrap, center, center);
 	text-align: center;

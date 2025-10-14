@@ -56,8 +56,16 @@
 	&--hero {
 		display: inline-block;
 	}
+
+	&--tabs {
+		padding: 0 0 10px 0;
+		background-color: $white;
+		color: $primary-color;
+		width: 100%;
+		@include flex(row, nowrap, flex-start, flex-start);
+	}
 }
 
-.btn:not(.btn--cart, .btn--link, .btn--slider, .back-button, .btn--hamburger):hover {
+.btn:not(.btn--cart, .btn--link, .btn--slider, .back-button, .btn--hamburger, .btn--tabs):hover {
 	background-color: $orange;
 }

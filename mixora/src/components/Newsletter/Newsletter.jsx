@@ -18,7 +18,7 @@ function Newsletter() {
 		} else {
 			setErrorMessage('');
 			setEmail('');
-			navigate('/subscribed');
+			navigate('/success', { state: { type: 'newsletter' } });
 		}
 	};
 
