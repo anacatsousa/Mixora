@@ -5,6 +5,7 @@
 	height: calc(100vh - 2 * 40px);
 	overflow-y: auto;
 	@include flex(column, nowrap, flex-start, stretch);
+	padding-top: 40px;
 
 	gap: 1rem;
 	&__header {

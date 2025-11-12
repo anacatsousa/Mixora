@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import './_modalBase.scss';
 
-function ModalBase({ isOpen, children, direction = 'right', variant }) {
+function ModalBase({ isOpen, children, direction = 'right', withOverlay = true, variant, onClose }) {
 	const [closing, setClosing] = useState(false);
 	const [visibility, setVisibility] = useState(false);
 
 	useEffect(() => {
 		if (isOpen) {
-			// Open modal
 			setVisibility(true);
 			setClosing(false);
-			document.body.style.overflow = 'hidden';
+
+			// 🔹 Só bloqueia o scroll se houver overlay
+			if (withOverlay) {
+				document.body.style.overflow = 'hidden';
+			}
 		} else if (visibility) {
-			// Init close animation
 			setClosing(true);
-			// wait 300ms (animation time) to close modal
+
 			const timeout = setTimeout(() => {
 				setVisibility(false);
 				setClosing(false);
@@ -23,18 +25,37 @@ function ModalBase({ isOpen, children, direction = 'right', variant }) {
 
 			return () => clearTimeout(timeout);
 		}
-	}, [isOpen, visibility]);
+	}, [isOpen, visibility, withOverlay]);
 
 	if (!visibility) return null;
 
 	const animationDirection = closing ? `modal__base--closed-${direction}` : `modal__base--open-${direction}`;
 
+	const handleOverlayClick = (e) => {
+		// Fecha se clicou exatamente no overlay (e não dentro da modal)
+		if (e.currentTarget === e.target) {
+			onClose?.();
+		}
+	};
+
 	return (
 		<section className="modal">
-			<div className="modal__overlay">
-				<div className={`modal__base modal__base--${variant} ${animationDirection}`}>{children}</div>
-			</div>
+			{withOverlay ? (
+				<div className="modal__overlay" onClick={handleOverlayClick}>
+					<div
+						className={`modal__base modal__base--${variant} ${animationDirection}`}
+						onClick={(e) => e.stopPropagation()} // impede o clique dentro de fechar
+					>
+						{children}
+					</div>
+				</div>
+			) : (
+				<div className={`modal__base modal__base--${variant} ${animationDirection}`} onClick={(e) => e.stopPropagation()}>
+					{children}
+				</div>
+			)}
 		</section>
 	);
 }
+
 export default ModalBase;

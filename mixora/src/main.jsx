@@ -20,6 +20,7 @@ import FaqPage from './pages/FaqPage.jsx';
 import ContactUsPage from './pages/ContactUsPage.jsx';
 import DeliveryAndReturnsPage from './pages/DeliveryAndReturnsPage.jsx';
 import SuccessPage from './pages/SuccessPage/SuccessPage.jsx';
+import AccountPage from './pages/AccountPage.jsx';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -40,6 +41,7 @@ createRoot(document.getElementById('root')).render(
 						<Route path="/faq" element={<FaqPage />} />
 						<Route path="/contact" element={<ContactUsPage />} />
 						<Route path="/delivery&returns" element={<DeliveryAndReturnsPage />} />
+						<Route path="/account" element={<AccountPage />} />
 						<Route path="*" element={<NotFoundPage />} />
 					</Route>
 				</Routes>

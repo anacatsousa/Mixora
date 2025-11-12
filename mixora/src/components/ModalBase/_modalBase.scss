@@ -3,7 +3,11 @@
 
 .modal {
 	position: fixed;
-	z-index: 9999;
+	top: 0;
+	right: 0;
+	height: 100%;
+	z-index: 999;
+
 	&__overlay {
 		position: fixed;
 		top: 0;
@@ -14,10 +18,14 @@
 		background-color: rgba($primary-color, 0.5);
 		backdrop-filter: blur(10px);
 		z-index: 9999;
+		inset: 0;
+		pointer-events: auto;
 	}
 
 	&__base {
 		background-color: $white;
+		overflow-y: auto;
+		padding-top: 90px;
 
 		&--full {
 			width: 100vw;
@@ -25,6 +33,7 @@
 
 		&--half {
 			width: 45vw;
+			height: 100dvh;
 		}
 
 		&--open-right {

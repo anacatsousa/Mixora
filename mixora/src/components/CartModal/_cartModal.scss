@@ -3,7 +3,7 @@
 
 .cart {
 	@include flex(column, nowrap, space-between, stretch);
-	height: calc(100vh - 2 * 40px);
+	height: calc(100vh - 2 * 40px - 90px);
 	overflow: hidden;
 
 	&__header {
