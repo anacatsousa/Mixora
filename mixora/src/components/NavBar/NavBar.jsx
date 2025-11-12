@@ -140,7 +140,10 @@ function NavBar({ onCartClick, onSearchClick }) {
 									</Link>
 									<div className="nav__small-nav-right">
 										<Search className="nav__icons" onClick={onSearchClick} />
-										<User className="nav__icons" />
+										<Link to={'/account'} className="nav__links">
+											<User className="nav__icons" />
+										</Link>
+
 										<Button text={`[ ${total} ]`} onClick={onCartClick} variant="icon" />
 									</div>
 								</div>
@@ -162,7 +165,7 @@ function NavBar({ onCartClick, onSearchClick }) {
 									</div>
 									<div className="nav__right">
 										<Button text="Search" onClick={onSearchClick} variant="link" />
-										<Link to={'#'} className="nav__links">
+										<Link to={'/account'} className="nav__links">
 											Account
 										</Link>
 										<Button text={`Bag [ ${total} ]`} onClick={onCartClick} variant="link" />

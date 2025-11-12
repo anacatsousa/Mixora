@@ -1,11 +1,15 @@
 import BackButton from '../BackButton/BackButton';
+import Button from '../Button/Button';
 import './_headerCategoryProducts.scss';
 
-function HeaderCategoryProducts({ title }) {
+function HeaderCategoryProducts({ title, onFilterClick }) {
 	return (
 		<div className="header">
-			<BackButton />
-			<h2 className="header__title">{title}</h2>
+			<div>
+				<BackButton />
+				<h2 className="header__title">{title}</h2>
+			</div>
+			<Button text="Filters" onClick={onFilterClick} />
 		</div>
 	);
 }

@@ -1,7 +1,7 @@
 import { useCart } from '@/hooks/useCart';
 import Button from '../Button/Button';
 import Container from '../Container/Container';
-import './cartModal.scss';
+import './_cartModal.scss';
 import { X } from 'lucide-react';
 import { Plus } from 'lucide-react';
 import { Minus } from 'lucide-react';
@@ -16,7 +16,7 @@ function CartModal({ isOpen, onClose }) {
 
 	return (
 		<>
-			<ModalBase isOpen={isOpen} variant="half">
+			<ModalBase isOpen={isOpen} variant="half" onClose={onClose}>
 				<Container>
 					<div className="cart">
 						<div className="cart__header">
