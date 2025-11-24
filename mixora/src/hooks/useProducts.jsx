@@ -12,7 +12,7 @@ function useProducts() {
 
 				const newProducts = await response.json();
 
-				console.log('newProducts', newProducts);
+				//console.log('newProducts', newProducts);
 
 				setProducts(newProducts);
 			} catch (error) {

@@ -21,31 +21,38 @@ import ContactUsPage from './pages/ContactUsPage.jsx';
 import DeliveryAndReturnsPage from './pages/DeliveryAndReturnsPage.jsx';
 import SuccessPage from './pages/SuccessPage/SuccessPage.jsx';
 import AccountPage from './pages/AccountPage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import RegisterPage from './pages/RegisterPage.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
 		<BrowserRouter>
-			<CartProvider>
-				<Routes>
-					<Route element={<Layout />}>
-						<Route path="/" element={<HomePage />} />
-						<Route path="/all" element={<AllProductsPage />} />
-						<Route path="/category/:slug" element={<CategoryPage />} />
-						<Route path="/category/:categorySlug/:productSlug" element={<ProductPage />} />
-						<Route path="/about" element={<AboutUsPage />} />
-						<Route path="/terms&conditions" element={<TermsConditionsPage />} />
-						<Route path="/privacy&cookies" element={<PrivacyCookiesPage />} />
-						<Route path="/success" element={<SuccessPage />} />
-						<Route path="/careers" element={<CareesPage />} />
-						<Route path="/stores" element={<StoresPage />} />
-						<Route path="/faq" element={<FaqPage />} />
-						<Route path="/contact" element={<ContactUsPage />} />
-						<Route path="/delivery&returns" element={<DeliveryAndReturnsPage />} />
-						<Route path="/account" element={<AccountPage />} />
-						<Route path="*" element={<NotFoundPage />} />
-					</Route>
-				</Routes>
-			</CartProvider>
+			<AuthProvider>
+				<CartProvider>
+					<Routes>
+						<Route element={<Layout />}>
+							<Route path="/" element={<HomePage />} />
+							<Route path="/all" element={<AllProductsPage />} />
+							<Route path="/category/:slug" element={<CategoryPage />} />
+							<Route path="/category/:categorySlug/:productSlug" element={<ProductPage />} />
+							<Route path="/about" element={<AboutUsPage />} />
+							<Route path="/terms&conditions" element={<TermsConditionsPage />} />
+							<Route path="/privacy&cookies" element={<PrivacyCookiesPage />} />
+							<Route path="/success" element={<SuccessPage />} />
+							<Route path="/careers" element={<CareesPage />} />
+							<Route path="/stores" element={<StoresPage />} />
+							<Route path="/faq" element={<FaqPage />} />
+							<Route path="/contact" element={<ContactUsPage />} />
+							<Route path="/delivery&returns" element={<DeliveryAndReturnsPage />} />
+							<Route path="/account" element={<AccountPage />} />
+							<Route path="/login" element={<LoginPage />} />
+							<Route path="/register" element={<RegisterPage />} />
+							<Route path="*" element={<NotFoundPage />} />
+						</Route>
+					</Routes>
+				</CartProvider>
+			</AuthProvider>
 		</BrowserRouter>
 	</StrictMode>
 );

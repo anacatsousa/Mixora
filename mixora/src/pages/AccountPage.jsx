@@ -1,19 +1,56 @@
+import useAuth from '../hooks/useAuth';
 import Loading from '../components/Loading/Loading';
-import useUser from '../hooks/useUser';
+import { useNavigate } from 'react-router';
+import Button from '../components/Button/Button';
+import '../scss/components/_static-page.scss';
+import HeaderStaticPages from '../components/HeaderStaticPages/HeaderStaticPages';
+import Container from '../components/Container/Container';
 
 function AccountPage() {
-	const { users, isLoading } = useUser();
+	const { user, loading, logout } = useAuth();
+	const navigate = useNavigate();
 
-	if (isLoading) return <Loading />;
+	if (loading) return <Loading />;
+
+	const handleLogout = () => {
+		logout();
+		navigate('/login');
+	};
+	console.log('USER RECEBIDO NA AccountPage:', user);
 
 	return (
-		<ul>
-			{users.map((user) => (
-				<li key={user.id}>
-					{user.name} - {user.email}
-				</li>
-			))}
-		</ul>
+		<section className="static-page">
+			<HeaderStaticPages title="Account" />
+			{!user ? (
+				<>
+					<Container>
+						<div className="static-page__container">
+							<h3 className="static-page__subtitle-account">You are not logged in</h3>
+							<p>Please log in to view your account details.</p>
+							<Button text="Go to Login" onClick={() => navigate('/login')} />
+						</div>
+					</Container>
+				</>
+			) : (
+				<>
+					<section>
+						<Container>
+							<img src={user.avatar} alt={user.name} />
+							<p>
+								<strong>Nome:</strong> {user.name}
+							</p>
+							<p>
+								<strong>Email:</strong> {user.email}
+							</p>
+							<p>
+								<strong>ID:</strong> {user.id}
+							</p>
+							<Button text="Logout" onClick={handleLogout} />
+						</Container>
+					</section>
+				</>
+			)}
+		</section>
 	);
 }
 
