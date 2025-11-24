@@ -130,4 +130,21 @@
 	.invalid {
 		display: block;
 	}
+
+	// account page
+
+	&__container {
+		@include flex(column, nowrap, center, center);
+		gap: 40px;
+		height: calc(100dvh - 298px - 2 * 40px);
+		text-align: center;
+
+		@include mobile {
+			height: calc(100dvh - 288px - 2 * 40px);
+		}
+	}
+
+	&__subtitle-account {
+		font-size: $h3;
+	}
 }

@@ -12,10 +12,13 @@ import HambuerguerButton from '../HamburguerButton/HamburguerButton';
 import { useCart } from '../../hooks/useCart';
 import Button from '@/components/Button/Button';
 import Loading from '../Loading/Loading';
+import useAuth from '../../hooks/useAuth';
 
 function NavBar({ onCartClick, onSearchClick }) {
 	const { categories, isLoading } = useCategories([]);
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+	const { user } = useAuth();
 
 	useEffect(() => {
 		const handleResize = () => setWindowWidth(window.innerWidth);
@@ -140,7 +143,7 @@ function NavBar({ onCartClick, onSearchClick }) {
 									</Link>
 									<div className="nav__small-nav-right">
 										<Search className="nav__icons" onClick={onSearchClick} />
-										<Link to={'/account'} className="nav__links">
+										<Link to={user ? '/account' : '/login'}>
 											<User className="nav__icons" />
 										</Link>
 
@@ -165,7 +168,7 @@ function NavBar({ onCartClick, onSearchClick }) {
 									</div>
 									<div className="nav__right">
 										<Button text="Search" onClick={onSearchClick} variant="link" />
-										<Link to={'/account'} className="nav__links">
+										<Link to={user ? '/account' : '/login'} className="nav__links">
 											Account
 										</Link>
 										<Button text={`Bag [ ${total} ]`} onClick={onCartClick} variant="link" />

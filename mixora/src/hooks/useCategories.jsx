@@ -12,7 +12,7 @@ function useCategories() {
 
 				const newCaterories = await response.json();
 
-				console.log('newCaterories', newCaterories);
+				//console.log('newCaterories', newCaterories);
 
 				setCategories(newCaterories);
 			} catch (error) {
