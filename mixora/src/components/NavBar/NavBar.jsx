@@ -12,13 +12,13 @@ import HambuerguerButton from '../HamburguerButton/HamburguerButton';
 import { useCart } from '../../hooks/useCart';
 import Button from '@/components/Button/Button';
 import Loading from '../Loading/Loading';
-import useAuth from '../../hooks/useAuth';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 function NavBar({ onCartClick, onSearchClick }) {
 	const { categories, isLoading } = useCategories([]);
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-	const { user } = useAuth();
+	const { user } = useAuthContext();
 
 	useEffect(() => {
 		const handleResize = () => setWindowWidth(window.innerWidth);
