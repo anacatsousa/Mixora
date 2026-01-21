@@ -1,13 +1,13 @@
-import useAuth from '../hooks/useAuth';
 import Loading from '../components/Loading/Loading';
 import { useNavigate } from 'react-router';
 import Button from '../components/Button/Button';
 import '../scss/components/_static-page.scss';
 import HeaderStaticPages from '../components/HeaderStaticPages/HeaderStaticPages';
 import Container from '../components/Container/Container';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 function AccountPage() {
-	const { user, loading, logout } = useAuth();
+	const { user, loading, logout } = useAuthContext();
 	const navigate = useNavigate();
 
 	if (loading) return <Loading />;
