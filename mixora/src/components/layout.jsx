@@ -5,10 +5,11 @@ import NavBar from './NavBar/NavBar';
 import { useState } from 'react';
 import CartModal from './CartModal/CartModal';
 import SearchModal from './SearchModal/SearchModal';
+import { useSearch } from '../hooks/useSearch';
 
 function Layout() {
 	const [isCartOpen, setIsCartOpen] = useState(false);
-	const [isSearchOpen, setIsSearchOpen] = useState(false);
+	const { isSearchOpen, setIsSearchOpen } = useSearch();
 
 	return (
 		<>
