@@ -32,21 +32,23 @@ function AccountPage() {
 				</>
 			) : (
 				<>
-					<section>
-						<Container>
-							<img src={user.avatar} alt={user.name} />
-							<p>
-								<strong>Nome:</strong> {user.name}
-							</p>
-							<p>
-								<strong>Email:</strong> {user.email}
-							</p>
-							<p>
-								<strong>ID:</strong> {user.id}
-							</p>
+					<Container>
+						<div className="static-page__account">
+							<div className="static-page__info-account">
+								<img className="static-page__avatar" src={user.avatar} alt={user.name} />
+								<p>
+									<strong>Nome:</strong> {user.name}
+								</p>
+								<p>
+									<strong>Email:</strong> {user.email}
+								</p>
+								<p>
+									<strong>ID:</strong> {user.id}
+								</p>
+							</div>
 							<Button text="Logout" onClick={handleLogout} />
-						</Container>
-					</section>
+						</div>
+					</Container>
 				</>
 			)}
 		</section>

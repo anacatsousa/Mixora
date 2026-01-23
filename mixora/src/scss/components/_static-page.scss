@@ -147,4 +147,13 @@
 	&__subtitle-account {
 		font-size: $h3;
 	}
+
+	&__account {
+		@include flex(row, nowrap, space-between, flex-start);
+	}
+
+	&__avatar {
+		width: 150px;
+		margin-bottom: 30px;
+	}
 }

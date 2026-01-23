@@ -13,6 +13,7 @@ import { useCart } from '../../hooks/useCart';
 import Button from '@/components/Button/Button';
 import Loading from '../Loading/Loading';
 import { useAuthContext } from '../../hooks/useAuthContext';
+import { useSearch } from '../../hooks/useSearch';
 
 function NavBar({ onCartClick, onSearchClick }) {
 	const { categories, isLoading } = useCategories([]);
@@ -125,6 +126,21 @@ function NavBar({ onCartClick, onSearchClick }) {
 		return () => window.removeEventListener('resize', checkOverflow);
 	}, [categories]);
 
+	// ***
+
+	// Close search modal on link click
+
+	// ***
+
+	const { setIsSearchOpen } = useSearch();
+
+	const handleLinkClick = () => {
+		setIsSearchOpen(false);
+		if (isOpen) toggleMenu(); // close menu on link click
+	};
+
+	
+
 	if (isLoading === true) return <Loading />;
 
 	return (
@@ -138,16 +154,23 @@ function NavBar({ onCartClick, onSearchClick }) {
 									<div className="nav__small-nav-left" ref={navLeftRef}>
 										<HambuerguerButton isOpen={isOpen} toggle={toggleMenu} />
 									</div>
-									<Link to={'/'}>
+									<Link to={'/'} onClick={handleLinkClick}>
 										<img src={logo} alt="logo" className="nav__logo" />
 									</Link>
 									<div className="nav__small-nav-right">
 										<Search className="nav__icons" onClick={onSearchClick} />
-										<Link to={user ? '/account' : '/login'}>
+										<Link to={user ? '/account' : '/login'} onClick={handleLinkClick}>
 											<User className="nav__icons" />
 										</Link>
 
-										<Button text={`[ ${total} ]`} onClick={onCartClick} variant="icon" />
+										<Button
+											text={`[ ${total} ]`}
+											onClick={() => {
+												onCartClick();
+												handleLinkClick();
+											}}
+											variant="icon"
+										/>
 									</div>
 								</div>
 							</>
@@ -156,22 +179,29 @@ function NavBar({ onCartClick, onSearchClick }) {
 								<div className="nav__options">
 									<div className="nav__left" ref={navLeftRef}>
 										{categories.slice(0, 5).map((category) => (
-											<Link to={`category/${category.slug}`} key={category.id} className="nav__links">
+											<Link to={`category/${category.slug}`} key={category.id} className="nav__links" onClick={handleLinkClick}>
 												{category.name}
 											</Link>
 										))}
 									</div>
 									<div className="nav__center">
-										<Link to={'/'}>
+										<Link to={'/'} onClick={handleLinkClick}>
 											<img src={logo} alt="logo" className="nav__logo" />
 										</Link>
 									</div>
 									<div className="nav__right">
 										<Button text="Search" onClick={onSearchClick} variant="link" />
-										<Link to={user ? '/account' : '/login'} className="nav__links">
+										<Link to={user ? '/account' : '/login'} className="nav__links" onClick={handleLinkClick}>
 											Account
 										</Link>
-										<Button text={`Bag [ ${total} ]`} onClick={onCartClick} variant="link" />
+										<Button
+											text={`Bag [ ${total} ]`}
+											onClick={() => {
+												onCartClick();
+												handleLinkClick();
+											}}
+											variant="link"
+										/>
 									</div>
 								</div>
 							</div>
@@ -181,7 +211,7 @@ function NavBar({ onCartClick, onSearchClick }) {
 						<>
 							<div className={`nav__options-small-nav ${isOpen ? 'nav__options-small-nav--open' : 'nav__options-small-nav--closed'}`}>
 								{categories.slice(0, 5).map((category) => (
-									<Link to={`/category/${category.slug}`} key={category.id} onClick={toggleMenu} className="nav__links nav__links--small-nav">
+									<Link to={`/category/${category.slug}`} key={category.id} onClick={handleLinkClick} className="nav__links nav__links--small-nav">
 										{category.name}
 										<ChevronRight />
 									</Link>
