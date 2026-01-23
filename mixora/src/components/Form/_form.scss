@@ -58,13 +58,6 @@
 		-webkit-text-fill-color: $primary-color !important;
 	}
 
-	&__error-message {
-		color: $orange;
-		font-size: 0.85rem;
-		margin-top: 5px;
-		display: none;
-	}
-
 	&__link {
 		@extend %link;
 		color: $orange;
@@ -79,6 +72,10 @@
 		font-size: 0.85rem;
 		margin-top: 5px;
 		display: none;
+	}
+
+	&__error-general {
+		margin-bottom: 40px;
 	}
 	.invalid {
 		display: block;

@@ -16,39 +16,51 @@ function AuthProvider({ children }) {
 	}, []);
 
 	const login = async ({ email, password }) => {
-		const response = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ email, password }),
-		});
+		setLoading(true);
 
-		const data = await response.json();
-		console.log('LOGIN RESPONSE:', data);
+		try {
+			const response = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ email, password }),
+			});
 
-		if (data.access_token) {
-			localStorage.setItem('token', data.access_token);
-			await fetchProfile(data.access_token);
+			const data = await response.json();
+
+			if (!response.ok) {
+				if (response.status === 401) {
+					throw new Error('Email or password incorrect. Please try again.');
+				}
+				throw new Error('Login failed. Please try again later.');
+			}
+
+			if (data.access_token) {
+				localStorage.setItem('token', data.access_token);
+				await fetchProfile(data.access_token);
+			} else {
+				setLoading(false);
+				throw new Error('Authentication error. Please contact support.');
+			}
+
+			return data;
+		} catch (error) {
+			setLoading(false);
+			throw error;
 		}
-
-		return data;
 	};
 
 	const fetchProfile = async (token) => {
 		try {
-			console.log('TOKEN:', token);
-
 			const response = await fetch('https://api.escuelajs.co/api/v1/auth/profile', {
 				headers: { Authorization: `Bearer ${token}` },
 			});
 
 			const profile = await response.json();
-			console.log('Profile:', profile);
 
 			if (profile?.name === 'EntityNotFoundError' || profile?.statusCode) {
 				console.warn('User do not exist or token invalid. Cleaning token...');
 				localStorage.removeItem('token');
 				setUser(null);
-				setLoading(false);
 				return;
 			}
 

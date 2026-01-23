@@ -16,7 +16,6 @@ function AccountPage() {
 		logout();
 		navigate('/login');
 	};
-	console.log('USER RECEBIDO NA AccountPage:', user);
 
 	return (
 		<section className="static-page">
