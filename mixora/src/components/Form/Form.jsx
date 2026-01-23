@@ -4,7 +4,7 @@ import Container from '../Container/Container';
 import Button from '../Button/Button';
 import { useState } from 'react';
 
-function Form({ login = false, register = false, title, onSubmit }) {
+function Form({ login = false, register = false, title, onSubmit, apiError }) {
 	const navigate = useNavigate();
 
 	const [formData, setFormData] = useState({
@@ -20,6 +20,10 @@ function Form({ login = false, register = false, title, onSubmit }) {
 			...formData,
 			[e.target.name]: e.target.value,
 		});
+
+		if (errors.api) {
+			setErrors({ ...errors, api: null });
+		}
 	};
 
 	const validate = () => {
@@ -48,15 +52,19 @@ function Form({ login = false, register = false, title, onSubmit }) {
 
 		if (!validate()) return;
 
-		// Se veio onSubmit de Login ou Register, use ele:
 		if (onSubmit) {
-			onSubmit(e);
+			onSubmit(formData);
 			return;
 		}
 
-		// Comportamento padrão se não houver onSubmit externo
 		navigate('/account');
 	};
+
+	useState(() => {
+		if (apiError) {
+			setErrors({ ...errors, api: apiError });
+		}
+	}, [apiError]);
 
 	return (
 		<div className="form">
@@ -90,6 +98,12 @@ function Form({ login = false, register = false, title, onSubmit }) {
 							<input type="password" id="password" name="password" placeholder="********" className="form__input" value={formData.password} onChange={handleChange} required />
 							<span className={`static-page__error-message ${errors.password ? 'invalid' : ''}`}>{errors.password}</span>
 						</div>
+
+						{(errors.api || apiError) && (
+							<div className="form__error-general">
+								<span className="static-page__error-message invalid">{errors.api || apiError}</span>
+							</div>
+						)}
 
 						<Button text={title} className="form__btn" />
 
