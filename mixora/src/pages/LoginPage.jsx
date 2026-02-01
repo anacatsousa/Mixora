@@ -2,8 +2,10 @@ import { useNavigate } from 'react-router';
 import Form from '../components/Form/Form';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useState } from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 function LoginPage() {
+	useScrollToTop();
 	const { login } = useAuthContext();
 	const navigate = useNavigate();
 	const [error, setError] = useState(null);

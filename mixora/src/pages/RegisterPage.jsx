@@ -3,8 +3,10 @@ import Form from '../components/Form/Form';
 import { useAuthContext } from '../hooks/useAuthContext';
 import useUser from '../hooks/useUser';
 import { useState } from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 function RegisterPage() {
+	useScrollToTop();
 	const { login } = useAuthContext();
 	const { users } = useUser();
 	const navigate = useNavigate();

@@ -5,8 +5,10 @@ import '../scss/components/_static-page.scss';
 import HeaderStaticPages from '../components/HeaderStaticPages/HeaderStaticPages';
 import Container from '../components/Container/Container';
 import { useAuthContext } from '../hooks/useAuthContext';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 function AccountPage() {
+	useScrollToTop();
 	const { user, loading, logout } = useAuthContext();
 	const navigate = useNavigate();
 
