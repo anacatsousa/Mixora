@@ -23,6 +23,8 @@ Product data is fetched dynamically from the [Platzi Fake Store API](https://fak
 
 - Dynamic product data fetched from an external REST API
 - Client-side navigation with React Router
+- Global state management with React Context
+- Custom hooks for reusable data fetching logic
 - Fully responsive layout (mobile, tablet, desktop)
 - Modular SCSS styling with BEM methodology
 
