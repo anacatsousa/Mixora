@@ -39,6 +39,10 @@
 	&:focus {
 		outline: none; 
 	}
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
+
 	&:focus-visible {
 		outline: auto;
 	}
