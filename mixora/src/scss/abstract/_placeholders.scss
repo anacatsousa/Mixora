@@ -38,13 +38,8 @@
 	box-shadow: none;
 	&:focus {
 		outline: none; 
-	}
-	&:focus:not(:focus-visible) {
-		outline: none;
-	}
+		border-bottom: 1px solid $orange;
 
-	&:focus-visible {
-		outline: auto;
 	}
 
 	@include tablet {
