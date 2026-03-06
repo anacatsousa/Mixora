@@ -37,7 +37,7 @@
 	-moz-appearance: none;
 	box-shadow: none;
 	&:focus-visible {
-		outline: none;
+		outline: auto;
 	}
 
 	@include tablet {
