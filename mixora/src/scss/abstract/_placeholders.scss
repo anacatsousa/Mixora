@@ -37,12 +37,8 @@
 	-moz-appearance: none;
 	box-shadow: none;
 	&:focus {
-    	outline: none;
-  	}
-
-  	&:focus-visible {
-	    outline: none;
-	    border-bottom: 2px solid $orange; // espessura aumentada para reforçar o foco
+		outline: none;
+		border-bottom: 1px solid $orange;
 	}
 
 	@include tablet {

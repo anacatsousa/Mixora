@@ -47,6 +47,11 @@
 		@include flex(row, nowrap, space-between, center);
 		background-color: $white;
 		padding: 10px;
+		border: 2px solid transparent;
+
+		&:focus-within {
+			border: 2px solid $orange;
+		}
 	}
 
 	&__input {
@@ -60,7 +65,7 @@
 		-moz-appearance: none;
 		box-shadow: none;
 
-		&:focus-visible {
+		&:focus {
 			outline: none;
 		}
 	}

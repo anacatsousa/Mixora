@@ -19,7 +19,7 @@ function SuccessPage() {
 		<>
 			<section className="success">
 				<Container>
-					<h2 className="success__title">{message}</h2>
+					<h1 className="success__title">{message}</h1>
 					<Link to={'/'} className="success__link">
 						Go Home
 					</Link>

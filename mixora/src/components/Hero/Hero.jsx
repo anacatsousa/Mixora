@@ -16,7 +16,7 @@ function Hero() {
 				<Container>
 					<span>[ NEW IN ]</span>
 					<h1 className="hero__title"> Autumn Collection </h1>
-					<Button to="/all" text="Shop Now" variant="hero" />
+					<Button to="/all" text="Shop Now" variant="hero" aria-label="Shop button" />
 				</Container>
 			</div>
 		</section>

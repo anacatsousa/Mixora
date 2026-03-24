@@ -28,7 +28,7 @@ function AccountPage() {
 						<div className="static-page__container">
 							<h3 className="static-page__subtitle-account">You are not logged in</h3>
 							<p>Please log in to view your account details.</p>
-							<Button text="Go to Login" onClick={() => navigate('/login')} />
+							<Button text="Go to Login" onClick={() => navigate('/login')} aria-label="Login button" />
 						</div>
 					</Container>
 				</>
@@ -48,7 +48,7 @@ function AccountPage() {
 									<strong>ID:</strong> {user.id}
 								</p>
 							</div>
-							<Button text="Logout" onClick={handleLogout} />
+							<Button text="Logout" onClick={handleLogout} aria-label="Logout button" />
 						</div>
 					</Container>
 				</>

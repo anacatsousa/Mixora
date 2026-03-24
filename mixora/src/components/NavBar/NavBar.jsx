@@ -139,8 +139,6 @@ function NavBar({ onCartClick, onSearchClick }) {
 		if (isOpen) toggleMenu(); // close menu on link click
 	};
 
-	
-
 	if (isLoading === true) return <Loading />;
 
 	return (
@@ -186,7 +184,7 @@ function NavBar({ onCartClick, onSearchClick }) {
 									</div>
 									<div className="nav__center">
 										<Link to={'/'} onClick={handleLinkClick}>
-											<img src={logo} alt="logo" className="nav__logo" />
+											<img src={logo} alt="Logo Mixora" className="nav__logo" />
 										</Link>
 									</div>
 									<div className="nav__right">

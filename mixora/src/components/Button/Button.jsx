@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import './_button.scss';
 
-function Button({ to, text, price, hasPrice = false, onClick, className = '', children, variant = 'default', disabled = false }) {
+function Button({ to, text, price, hasPrice = false, onClick, className = '', children, variant = 'default', disabled = false, ...props }) {
 	if (to) {
 		return (
 			<Link
@@ -10,6 +10,7 @@ function Button({ to, text, price, hasPrice = false, onClick, className = '', ch
 				onClick={(e) => {
 					if (onClick) onClick(e);
 				}}
+				{...props}
 			>
 				{text}
 			</Link>
@@ -17,7 +18,7 @@ function Button({ to, text, price, hasPrice = false, onClick, className = '', ch
 	}
 
 	return (
-		<button className={` btn btn--${variant} ${hasPrice ? 'space' : ''} ${className}`} onClick={onClick} disabled={disabled}>
+		<button className={` btn btn--${variant} ${hasPrice ? 'space' : ''} ${className}`} onClick={onClick} disabled={disabled} {...props}>
 			{children ? (
 				children
 			) : hasPrice ? (

@@ -19,7 +19,7 @@ function HomeProducts() {
 				acc[product.category.name] = product;
 			}
 			return acc;
-		}, {})
+		}, {}),
 	);
 
 	const scroll = (direction) => {
@@ -43,10 +43,10 @@ function HomeProducts() {
 				<span className="wrapper__title">[ NEW IN ]</span>
 				<div className="wrapper__controls">
 					<Button onClick={() => scroll('left')} variant={'slider'}>
-						<ChevronLeft />
+						<ChevronLeft aria-label="Arrow left icon" />
 					</Button>
 					<Button onClick={() => scroll('right')} variant={'slider'}>
-						<ChevronRight />
+						<ChevronRight aria-label="Arrow rigth icon" />
 					</Button>
 				</div>
 				<div className="wrapper__products" ref={scrollRef}>
