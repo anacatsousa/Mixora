@@ -17,19 +17,21 @@ function FiltersModal({ isOpen, onClose, appliedFilters, setAppliedFilters }) {
 						<div className="filter__header">
 							<h3 className="filter__title">Filters</h3>
 							<Button onClick={onClose}>
-								<X />
+								<X aria-label="close button" />
 							</Button>
 						</div>
 						<div className="filter__section">
-							<h4 className="filter__subtitle">Sorted by</h4>
-							<div className="filter__radio">
-								<input type="radio" name="sort" id="lowest" checked={localFilters.sort === 'asc'} onChange={() => setLocalFilters({ ...localFilters, sort: 'asc' })} />
-								<label htmlFor="lowest">Lowest price</label>
-							</div>
-							<div className="filter__radio">
-								<input type="radio" name="sort" id="highest" checked={localFilters.sort === 'desc'} onChange={() => setLocalFilters({ ...localFilters, sort: 'desc' })} />
-								<label htmlFor="highest">Highest price</label>
-							</div>
+							<fieldset>
+								<legend className="filter__subtitle">Sorted by</legend>
+								<div className="filter__radio">
+									<input type="radio" name="sort" id="lowest" checked={localFilters.sort === 'asc'} onChange={() => setLocalFilters({ ...localFilters, sort: 'asc' })} />
+									<label htmlFor="lowest">Lowest price</label>
+								</div>
+								<div className="filter__radio">
+									<input type="radio" name="sort" id="highest" checked={localFilters.sort === 'desc'} onChange={() => setLocalFilters({ ...localFilters, sort: 'desc' })} />
+									<label htmlFor="highest">Highest price</label>
+								</div>
+							</fieldset>
 						</div>
 						<div className="filter__section">
 							<h4 className="filter__subtitle">Price</h4>

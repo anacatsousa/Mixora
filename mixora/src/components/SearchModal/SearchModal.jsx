@@ -23,13 +23,15 @@ function SearchModal({ isOpen, onClose }) {
 			<Container>
 				<div className="search">
 					<div className="search__header">
-						<h3 className="cart__title">Search</h3>
+						<h1 className="cart__title">Search</h1>
 						<Button onClick={onClose}>
-							<X />
+							<X aria-label="Close button" />
 						</Button>
 					</div>
-
-					<input type="text" name="search" placeholder="What are you searching for?" className="search__input" value={query} onChange={(e) => setQuery(e.target.value)} />
+					<label className="sr-only" htmlFor="search">
+						Search
+					</label>
+					<input type="text" name="search" id="search" placeholder="What are you searching for?" className="search__input" value={query} onChange={(e) => setQuery(e.target.value)} />
 					{query && (
 						<div className="wrapper">
 							<div className="wrapper__products-grid">

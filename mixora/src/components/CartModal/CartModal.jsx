@@ -20,9 +20,9 @@ function CartModal({ isOpen, onClose }) {
 				<Container>
 					<div className="cart">
 						<div className="cart__header">
-							<h3 className="cart__title">Bag</h3>
+							<h2 className="cart__title">Bag</h2>
 							<Button onClick={onClose}>
-								<X />
+								<X aria-label="Close button" />
 							</Button>
 						</div>
 						<div className={`cart__body ${cartItems.length > 0 ? 'has-items' : ''}`}>
@@ -45,16 +45,16 @@ function CartModal({ isOpen, onClose }) {
 														<div className="cart__quantity-section">
 															{item.quantity === 1 ? (
 																<Button disabled={true} variant="cart">
-																	<Minus />
+																	<Minus aria-label="Decrease quantity button" />
 																</Button>
 															) : (
 																<Button hasPrice={false} onClick={() => removeProductFromCart(item)} variant="cart">
-																	<Minus />
+																	<Minus aria-label="Decrease quantity button" />
 																</Button>
 															)}
 															<p>{item.quantity}</p>
 															<Button hasPrice={false} onClick={() => addProductToCart(item)} variant="cart">
-																<Plus />
+																<Plus aria-label="Increase quantity button" />
 															</Button>
 														</div>
 													</div>
@@ -62,7 +62,7 @@ function CartModal({ isOpen, onClose }) {
 												<div className="cart__small-section">
 													<p>{item.price} €</p>
 													<Button hasPrice={false} onClick={() => deleteProductFromCart(item)} variant="cart">
-														<Trash2 />
+														<Trash2 aria-label="Delect button" />
 													</Button>
 												</div>
 											</div>
@@ -78,7 +78,12 @@ function CartModal({ isOpen, onClose }) {
 									<p>{total.toFixed(2)} €</p>
 								</div>
 							)}
-							<Button text={cartItems.length === 0 ? 'Continue Shopping' : 'Checkout'} to={cartItems.length === 0 ? '/all' : undefined} onClick={onClose} />
+							<Button
+								text={cartItems.length === 0 ? 'Continue Shopping' : 'Checkout'}
+								to={cartItems.length === 0 ? '/all' : undefined}
+								onClick={onClose}
+								ariallabel={cartItems.length === 0 ? 'Continue Shopping button' : 'Checkout button'}
+							/>
 						</div>
 					</div>
 				</Container>

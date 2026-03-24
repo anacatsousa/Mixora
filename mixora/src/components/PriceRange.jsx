@@ -30,9 +30,10 @@ function PriceRange({ min = 0, max = 1000, onChange }) {
 						{children}
 					</div>
 				)}
-				renderThumb={({ props }) => (
+				renderThumb={({ props, index }) => (
 					<div
 						{...props}
+						aria-label={index === 0 ? 'Minimum price' : 'Maximum price'}
 						style={{
 							...props.style,
 							height: '18px',

@@ -107,6 +107,9 @@
 		@extend %input;
 		border: 1px solid $primary-color;
 		padding: 10px;
+		&:focus {
+			border: 1px solid $orange;
+		}
 	}
 	&__input::placeholder,
 	&__textarea::placeholder {

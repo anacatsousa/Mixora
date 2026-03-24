@@ -7,9 +7,9 @@ function HeaderCategoryProducts({ title, onFilterClick }) {
 		<div className="header">
 			<div>
 				<BackButton />
-				<h2 className="header__title">{title}</h2>
+				<h1 className="header__title">{title}</h1>
 			</div>
-			<Button text="Filters" onClick={onFilterClick} />
+			<Button text="Filters" onClick={onFilterClick} aria-label="Filter button" />
 		</div>
 	);
 }

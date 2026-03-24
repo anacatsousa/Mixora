@@ -34,9 +34,13 @@ function Newsletter() {
 						<form onSubmit={handleSubmit} className="newsletter__form">
 							<div className="newsletter__input-group">
 								<div className="newsletter__input-wrapper">
+									<label className="sr-only" htmlFor="email">
+										Email
+									</label>
 									<input
 										type="email"
 										name="email"
+										id="email"
 										placeholder="Email Address"
 										className="newsletter__input"
 										value={email}
@@ -44,7 +48,7 @@ function Newsletter() {
 										onClick={() => setErrorMessage('')}
 									/>
 									<button type="submit" aria-label="submit button" className="newsletter__button">
-										<FontAwesomeIcon icon={faArrowPointer} />
+										<FontAwesomeIcon icon={faArrowPointer} aria-label="Arrow icon" />
 									</button>
 								</div>
 								<span className={`newsletter__error-message ${errorMessage ? 'newsletter__invalid' : ''}`}>{errorMessage}</span>

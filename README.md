@@ -1,4 +1,4 @@
-# Mixora 
+# Mixora
 
 A fictional e-commerce web application built to simulate a modern online shopping experience, integrating dynamic product data from the [Platzi Fake Store API](https://fakeapi.platzi.com/en). Built as a **study project** focused on practicing React and SCSS in a real-world app context.
 
@@ -27,6 +27,7 @@ Product data is fetched dynamically from the [Platzi Fake Store API](https://fak
 - Custom hooks for reusable data fetching logic
 - Fully responsive layout (mobile, tablet, desktop)
 - Modular SCSS styling with BEM methodology
+- Built with accessibility in mind (keyboard navigation, ARIA attributes, and screen reader support)
 
 <br>
 
@@ -85,14 +86,13 @@ npm run dev
 
 ## Dependencies
 
-| Package | Version | Purpose |
-|---|---|---|
-| react + react-dom | ^19.1.0 | UI library |
-| react-router | ^7.7.1 | Client-side routing |
-| sass | ^1.90.0 | SCSS compilation |
+| Package           | Version | Purpose             |
+| ----------------- | ------- | ------------------- |
+| react + react-dom | ^19.1.0 | UI library          |
+| react-router      | ^7.7.1  | Client-side routing |
+| sass              | ^1.90.0 | SCSS compilation    |
 
 <br>
-
 
 ## API
 
@@ -105,6 +105,5 @@ Product data is provided by the [Platzi Fake Store API](https://fakeapi.platzi.c
 This project is licensed under the [MIT License](LICENSE).
 
 <br>
-
 
 Made by [Catarina Sousa](https://github.com/anacatsousa)

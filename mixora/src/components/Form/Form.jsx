@@ -70,8 +70,7 @@ function Form({ login = false, register = false, title, onSubmit, apiError }) {
 		<div className="form">
 			<Container>
 				<div className="form__container">
-					<h3 className="form__title">{title}</h3>
-
+					<h1 className="form__title">{title}</h1>
 					<form className="form__section" onSubmit={handleSubmit} noValidate>
 						{register && (
 							<div className="form__group">
@@ -84,10 +83,10 @@ function Form({ login = false, register = false, title, onSubmit, apiError }) {
 						)}
 
 						<div className="form__group">
-							<label htmlFor="email" className="form__label">
+							<label htmlFor="emaillogin" className="form__label">
 								Email
 							</label>
-							<input type="email" id="email" name="email" placeholder="exemple@email.com" className="form__input" value={formData.email} onChange={handleChange} required />
+							<input type="email" id="emaillogin" name="email" placeholder="exemple@email.com" className="form__input" value={formData.email} onChange={handleChange} required />
 							<span className={`static-page__error-message ${errors.email ? 'invalid' : ''}`}>{errors.email}</span>
 						</div>
 

@@ -51,7 +51,7 @@ function InfoProduct({ categorySlug, productSlug }) {
 					<div className="info-product__grid">
 						<div className="info-product__flex">
 							<span>{product.category.name}</span>
-							<h2 className="info-product__title"> {product.title}</h2>
+							<h1 className="info-product__title"> {product.title}</h1>
 						</div>
 						<div className="info-product__flex">
 							<Button text="Add to Bag" hasPrice={true} price={product.price} onClick={() => addProductToCart(product)} />

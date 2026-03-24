@@ -98,10 +98,19 @@ function ContactUsPage() {
 							<span className={`static-page__error-message ${isValid.lastName.valid ? 'valid' : 'invalid'}`}>{isValid.lastName.errorMessage}</span>
 						</div>
 						<div className="static-page__form-group">
-							<label htmlFor="email" className="static-page__label">
+							<label htmlFor="emailform" className="static-page__label">
 								Email
 							</label>
-							<input type="email" id="email" name="email" className="static-page__input" placeholder="exemple@email.com" value={isValid.email.value} onChange={handleChange} required />
+							<input
+								type="email"
+								id="emailform"
+								name="email"
+								className="static-page__input"
+								placeholder="exemple@email.com"
+								value={isValid.email.value}
+								onChange={handleChange}
+								required
+							/>
 							<span className={`static-page__error-message ${isValid.email.valid ? 'valid' : 'invalid'}`}>{isValid.email.errorMessage}</span>
 						</div>
 						<div className="static-page__form-group">
@@ -120,7 +129,7 @@ function ContactUsPage() {
 							></textarea>
 							<span className={`static-page__error-message ${isValid.message.valid ? 'valid' : 'invalid'}`}>{isValid.message.errorMessage}</span>
 						</div>
-						<Button text="Submit" className="static-page__btn" />
+						<Button text="Submit" className="static-page__btn" aria-label="submit button" />
 					</form>
 				</Container>
 			</div>

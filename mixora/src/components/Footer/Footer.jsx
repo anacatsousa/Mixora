@@ -12,20 +12,20 @@ function Footer() {
 				<div className="footer__top">
 					<div className="footer__left">
 						<Link to={'/'}>
-							<img src={logo} alt="logo" className="footer__logo" />
+							<img src={logo} alt="Logo Mixora" className="footer__logo" />
 						</Link>
 						<ul className="footer__socialmedia">
 							<li>
-								<FontAwesomeIcon icon={faTiktok} />
+								<FontAwesomeIcon icon={faTiktok} aria-label="Tiktok icon" />
 							</li>
 							<li>
-								<FontAwesomeIcon icon={faInstagram} />
+								<FontAwesomeIcon icon={faInstagram} aria-label="Instagram icon" />
 							</li>
 							<li>
-								<FontAwesomeIcon icon={faFacebookF} />
+								<FontAwesomeIcon icon={faFacebookF} aria-label="Facebook icon" />
 							</li>
 							<li>
-								<FontAwesomeIcon icon={faYoutube} />
+								<FontAwesomeIcon icon={faYoutube} aria-label="Youtube icon" />
 							</li>
 						</ul>
 					</div>
@@ -75,23 +75,23 @@ function Footer() {
 							<h3 className="footer__title">Payment Methods</h3>
 							<ul className="footer__payment">
 								<li>
-									<FontAwesomeIcon icon={faPaypal} />
+									<FontAwesomeIcon icon={faPaypal} aria-label="Paypal icon" />
 								</li>
 
 								<li>
-									<FontAwesomeIcon icon={faGooglePay} />
+									<FontAwesomeIcon icon={faGooglePay} aria-label="Google Pay icon" />
 								</li>
 								<li>
-									<FontAwesomeIcon icon={faApplePay} />
+									<FontAwesomeIcon icon={faApplePay} aria-label="Apple Pay icon" />
 								</li>
 								<li>
-									<FontAwesomeIcon icon={faAmazonPay} />
+									<FontAwesomeIcon icon={faAmazonPay} aria-label="Amazon Pay icon" />
 								</li>
 								<li>
-									<FontAwesomeIcon icon={faCcMastercard} />
+									<FontAwesomeIcon icon={faCcMastercard} aria-label="Matercard icon" />
 								</li>
 								<li>
-									<FontAwesomeIcon icon={faCcVisa} />
+									<FontAwesomeIcon icon={faCcVisa} aria-label="Visa icon" />
 								</li>
 							</ul>
 						</div>

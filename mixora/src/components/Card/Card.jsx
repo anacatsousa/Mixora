@@ -30,7 +30,9 @@ function Card({ img, title, price, category, showCategory = true, isLoading = fa
 				{showCategory && <p className="card__category">{category}</p>}
 			</div>
 
-			<h4 className="card__title">{title}</h4>
+			<h2 className="card__title" aria-hidden="true">
+				{title}
+			</h2>
 			<span className="card__price">{price} €</span>
 		</div>
 	);
